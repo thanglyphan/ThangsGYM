@@ -5,7 +5,7 @@
 
 
 
-  <img src="<%= Item.get_program_picture(session[:program]) %>" style="width:304px;height:228px;">
+  <img src="<%= Item.get_program_picture(@current_user.item.program) %>" style="width:304px;height:228px;">
 
   <p></p>
   <% if session[:couch?] %>
