@@ -2,7 +2,11 @@
 
   <h2 class='User_Header'>Halla, <%= @current_user.username%>! </h2>
   <p> Du har valgt programmet: <%= @current_user.item.program %> for <%= @current_user.gender %>s <%= @current_user.item.price%> $</p>
-  
+
+
+
+  <img src="<%= Item.get_program_picture(session[:program]) %>" style="width:304px;height:228px;">
+
   <p></p>
   <% if session[:couch?] %>
       <% for st in @coaches_stats do%>
