@@ -15,7 +15,8 @@ default: &default
   pool: 5
   username: root
   password: mazda323123
-  host: 127.0.0.1
+  host: localhost
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default
