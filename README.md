@@ -1,3 +1,2 @@
 # PG4300-16-8-Thang
-Thang Phan
-d
+I "Dokumenter" ligger del 1 av min besvarelse.
