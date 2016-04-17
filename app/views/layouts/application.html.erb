@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MyWebsite</title>
+  <ul>
+    <li><%=link_to "Home", root_url %></li>
+    <li><%=link_to "Profile", profile_path %></li>
+    <li><%=link_to "Settings", setting_path %></li>
+    <li><%=link_to "Admin", adminpage_path %></li>
+    <% if @current_user.nil? %>
+        <li><%=link_to "Log in", login_path %></li>
+    <% else %>
+        <% if @current_user.admin? %>
+            <li><%= form_tag(:action => 'search_user', :controller => 'admins') do %>
+                  <p>Username or Email: <%= text_field_tag(:user_or_email) %> </p>
+              <% end %>
+            </li>
+        <% end %>
+        <div class = "dropdown">
+          <li class="dropbtn"><%=link_to "Hei, #{@current_user.username}!", profile_path %>
+          <div class="dropdown-content">
+            <a href ="status">Status</a>
+            <a href="logout">Log out</a>
+          </div>
+          </li>
+        </div>
+  <% end %>
+  </ul>
+  <%= include_gon %>
+  <%= stylesheet_link_tag "styling" %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'braintree', 'data-turbolinks-track' => true %>
+
+<%= yield %>
+
+</body>
+</html>
