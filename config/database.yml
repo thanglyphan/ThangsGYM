@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: ThangGym_production
-  username: root
-  password: mazda323123 #<%= ENV['MYWEBSITE_DATABASE_PASSWORD'] %>
+  database: MyWebsite_production
+  username: MyWebsite
+  password: <%= ENV['MYWEBSITE_DATABASE_PASSWORD'] %>
