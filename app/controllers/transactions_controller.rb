@@ -11,7 +11,7 @@ class TransactionsController < ApplicationController
   def create
 
     @result = Braintree::Transaction.sale(
-              amount: @current_item.price,
+              amount: @current_user.item.price,
               payment_method_nonce: params[:payment_method_nonce])
     if @result.success?
       UserMailer.deliver_product(@current_user, @current_item).deliver_now
