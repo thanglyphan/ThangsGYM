@@ -1,4 +1,5 @@
-<div class= "CenterAll">
+<div class="jumbotron">
+  <div class="container">
 
   <h2 class='User_Header'>Halla, <%= @current_user.username%>! </h2>
   <p> Du har valgt programmet: <%= @current_user.item.program %> for <%= @current_user.gender %>s <%= @current_user.item.price%> $</p>
@@ -21,7 +22,6 @@
   <%= flash[:notice] %>
   <p></p>
   <strong><%=link_to "Checkout", new_transaction_path%> </strong>
-
-
+  </div>
 </div>
 

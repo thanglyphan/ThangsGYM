@@ -36,7 +36,13 @@
                     <% end %>
         <% end %>
               <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%="Hi, #{@current_user.username}!"%> <span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <% if @current_user.profile_pic.nil? %>
+                    <img src="http://placehold.it/30x30" width="30" height="30" class="img-circle special-img">
+                    <% else %>
+                    <img src="<%= @current_user.profile_pic %>" width="30" height="30" class="img-circle special-img">
+              <% end %>
+                <%="Hi, #{@current_user.username}!"%><span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="status">Status</a></li>
                 <li role="separator" class="divider"></li>

@@ -127,6 +127,7 @@ class SessionsController < ApplicationController
   end
 
   def profile_pic_upload
+    User.add_profilepic(@current_user, "https://s-media-cache-ak0.pinimg.com/736x/97/22/6f/97226ffd114a2ba3b2f620ae9bf1d86e.jpg")
     redirect_to (:back)
   end
 
