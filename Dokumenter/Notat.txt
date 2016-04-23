@@ -1,0 +1,1 @@
+- Sjekk respond_to istedenfor redirect_to()
