@@ -13,6 +13,11 @@ module TrainingHelper
     redirect_to(:back)
   end
 
+  def pick_day
+    session[:day] = params[:day]
+    redirect_to(:back)
+  end
+
   def book_group
     @current_user = User.find_by(:auth_token => cookies[:auth_token])
     @group = GroupExercise.find_by(:id => params[:id])

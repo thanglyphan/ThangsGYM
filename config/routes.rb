@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   post 'book_group',          :to => 'training#book_group'
   get 'my_booking',           :to => 'training#my_booking'
   post 'remove_booking',      :to => 'training#remove_booking'
+  post 'pick_day',            :to => 'training#pick_day'
 
 
   resources :training
