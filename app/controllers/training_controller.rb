@@ -1,4 +1,5 @@
 class TrainingController < ApplicationController
+  include TrainingHelper
   before_filter :authenticate_user, :only => [:group_training, :bmi_calc]
   before_filter :save_login_state, :only => [:login, :login_attempt]
 
@@ -13,4 +14,6 @@ class TrainingController < ApplicationController
   def exercises_body
     render 'exercises_body'
   end
+
+
 end

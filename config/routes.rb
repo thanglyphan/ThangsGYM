@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get 'group_training',       :to => 'training#group_training'
   get 'bmi_calc',             :to => 'training#bmi_calc'
   get 'exercises_body',       :to => 'training#exercises_body'
+  post 'calculate_bmi',       :to => 'training#calculate_bmi'
 
 
   resources :training

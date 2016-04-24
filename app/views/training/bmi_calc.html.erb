@@ -1,1 +1,26 @@
-<p>BMI</p>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>Finn din BMI </h1>
+    <div class="col-md-3"><span class="pull-left">
+    <%= form_tag(:action => 'calculate_bmi') do %>
+        <p>Høyde i cm:<%= text_field_tag(:height) %></p>
+        <p>Vekt i kg: <%= text_field_tag (:weight) %></p>
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="submit" class="btn btn-default">Beregn din BMI</button>
+        </div>
+
+          <% if flash[:alert] != nil %>
+            <div class="alert alert-warning alert-dismissible" role="alert"><strong><%= flash[:alert] %></strong></div>
+          <% end %>
+    <% end %>
+    </span></div>
+
+    <div class="col-md-3"><span class="pull-right">
+      <h2>Din BMI er: </h2>
+
+          <div class="alert alert-success alert-dismissible" role="alert"><strong><%= flash[:notice] %></strong></div>
+
+    </span></div>
+  </div>
+</div>
