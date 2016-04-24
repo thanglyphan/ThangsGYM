@@ -14,7 +14,11 @@ module TrainingHelper
   end
 
   def pick_day
-    session[:day] = params[:day]
+    if(params[:day] == "Today")
+      session[:day] = nil
+    else
+      session[:day] = params[:day]
+    end
     redirect_to(:back)
   end
 
