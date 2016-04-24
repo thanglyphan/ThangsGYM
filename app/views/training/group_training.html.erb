@@ -1,1 +1,23 @@
-<p>GROUPS</p>
+<div class="jumbotron">
+  <div class="container">
+    <div class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-default">Monday</button>
+      <button type="button" class="btn btn-default">Tuesday</button>
+      <button type="button" class="btn btn-default">Wednesday</button>
+      <button type="button" class="btn btn-default">Thursday</button>
+      <button type="button" class="btn btn-default">Friday</button>
+    </div>
+
+    <%= form_tag(:action => 'book_group') do %>
+        <% for groups in @group_training do %>
+            <p><strong><%= groups.id %> <%= groups.weekday %> <%= groups.time %> <%= groups.name %> <%= groups.place %> <%= groups.intructor %> <%= groups.available_slots %>
+              <button type="submit" value="<%= groups.id%>" name="id" class="btn btn-default">Book</button>
+            </strong>
+            </p>
+        <% end %>
+    <% end %>
+
+  </div>
+</div>
+
+<%= flash[:notice] %>

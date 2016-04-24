@@ -14,6 +14,8 @@ class ApplicationController < ActionController::Base
       #@current_user = User.find session[:user_id]
       @current_user = User.find_by(:auth_token => cookies[:auth_token]) if cookies[:auth_token]
       @is_coaching = User.all #@current_user.coach
+      @list_of_bookings = AllMyBooking.all
+      @group_training = GroupExercise.all
       @coaches_stats = Coach.all
       #@cname = @current_user.coach
       if @current_user.admin?
@@ -38,6 +40,5 @@ class ApplicationController < ActionController::Base
   def load_user_and_subs
     @current_user = User.find_by(:auth_token => cookies[:auth_token]) if cookies[:auth_token]
     @subs = Subscription.find_by(:email => @current_user.email)
-
   end
 end

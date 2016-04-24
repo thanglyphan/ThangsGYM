@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <div class="container">
+
+    <p>Your past bookings</p>
+    <% for bookings in @list_of_bookings do %>
+        <% if @current_user.id == bookings.user_id %>
+            <strong> <%= bookings.value %> </strong>
+            <p></p>
+        <% end %>
+    <% end %>
+    <p></p>
+    <p>Your recently bookings: </p>
+    <% if !@current_user.group_exercise.nil?%>
+
+        <%= form_tag(:action => 'remove_booking') do %>
+            <strong> <%= @current_user.group_exercise.name %> </strong> with  <strong><%= @current_user.group_exercise.intructor %></strong> as instructor.
+            <div class="btn-group" role="group" aria-label="...">
+              <button type="submit" class="btn btn-default">Remove booking</button>
+            </div>
+        <% end %>
+
+
+    <% end %>
+  </div>
+</div>
+
+

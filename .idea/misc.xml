@@ -10,5 +10,8 @@
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/app/views/training/my_bookings.erb" />
+  </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="ruby-2.2.3-p173" project-jdk-type="RUBY_SDK" />
 </project>
