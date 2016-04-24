@@ -1,6 +1,6 @@
 class GroupExercise < ActiveRecord::Base
   has_many :users
-  attr_accessible :id, :weekday, :time, :name, :place, :intructor, :available_slots
+  attr_accessible :id, :weekday, :time, :name, :place, :intructor, :available_slots, :info
 
 
   def self.del_all

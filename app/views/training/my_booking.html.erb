@@ -4,14 +4,14 @@
     <p>Your past bookings</p>
     <% for bookings in @list_of_bookings do %>
         <% if @current_user.id == bookings.user_id %>
-            <% if bookings.id > bookings.id %>
+            <% if bookings == @list_of_bookings.last %>
                 <strong> <%= bookings.value %> LOL </strong>
                 <p></p>
             <% else %>
                 <strong> <%= bookings.value %> </strong>
                 <p></p>
 
-  <% end %>
+            <% end %>
         <% end %>
     <% end %>
     <p></p>

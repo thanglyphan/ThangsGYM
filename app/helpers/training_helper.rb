@@ -27,7 +27,7 @@ module TrainingHelper
     @group = GroupExercise.find_by(:id => params[:id])
     AllMyBooking.add_recent(@current_user, @group)
     User.add_group_id(@current_user, @group)
-    redirect_to(:back)
+    redirect_to my_booking_path
   end
 
   def remove_booking

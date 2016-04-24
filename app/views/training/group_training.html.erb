@@ -13,16 +13,73 @@
           <button type="submit" name="day" value="Sunday" class="btn btn-default">Sunday</button>
         </div>
     <% end %>
-<p></p>
+    <p></p>
     <%= form_tag(:action => 'book_group') do %>
-        <% for groups in @group_training do %>
-            <% if groups.weekday == session[:day] %>
-                <p><strong><%= groups.id %> <%= groups.weekday %> <%= groups.time %> <%= groups.name %> <%= groups.place %> <%= groups.intructor %> <%= groups.available_slots %>
-                  <button type="submit" value="<%= groups.id%>" name="id" class="btn btn-default">Book</button>
-                </strong>
-                </p>
-            <% end %>
-        <% end %>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Day of week</th>
+            <th>Time</th>
+            <th>Name</th>
+            <th>Place</th>
+            <th>Instructor</th>
+            <th>Available slots</th>
+            <th>Book</th>
+            <th>Info</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <% for groups in @group_training do %>
+              <% if groups.weekday == session[:day] %>
+                  <tr>
+                    <td><%= groups.weekday %></td>
+                    <td><%= groups.time %></td>
+                    <td><%= groups.name %></td>
+                    <td><%= groups.place %></td>
+                    <td><%= groups.intructor %></td>
+                    <td><%= groups.available_slots %></td>
+                    <td><button type="submit" value="<%= groups.id%>" name="id" class="btn btn-default">Book</button></td>
+                    <td><button type="button" class="open-showInfoModal btn btn-default" data-toggle="modal" data-id="<%= groups.info %>" data-target="#showInfoModal"%>Show info </button></td>
+                  </tr>
+                  </strong>
+                  </p>
+              <% end %>
+          <% end %>
+          </tbody>
+        </table>
     <% end %>
   </div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="showInfoModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h2 class="modal-title">Information about this course</h2>
+      </div>
+      <div class="modal-body">
+
+        <p id="infoOnTheCourse"></p>
+
+        <script>
+          $(document).on("click", ".open-showInfoModal", function () {
+            var myGroupId = $(this).data('id');
+            var element = document.getElementById("infoOnTheCourse");
+            element.innerHTML = myGroupId;
+          });
+        </script>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
