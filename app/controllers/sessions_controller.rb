@@ -10,6 +10,14 @@ class SessionsController < ApplicationController
     @current_user = User.find_by(:auth_token => cookies[:auth_token])#User.find session[:user_id]
   end
 
+  def contact
+    render 'contact'
+  end
+
+  def review
+    render 'review'
+  end
+
   def login_attempt
     authorized_user = User.authenticate(params[:username_or_email],params[:login_password])
 

@@ -24,7 +24,6 @@ class TrainingController < ApplicationController
           session[:day] = "Saturday"
       end
     end
-    flash[:notice] = Time.now.utc.wday
     render 'group_training'
   end
 
