@@ -28,6 +28,17 @@ Rails.application.routes.draw do
   post 'update_coach',        :to => 'admins#update_coach'
   post 'delete_user',         :to => 'admins#delete_user'
   post 'select_coach',        :to => 'sessions#select_coach'
+  get 'group_training',       :to => 'training#group_training'
+  get 'bmi_calc',             :to => 'training#bmi_calc'
+  get 'exercises_body',       :to => 'training#exercises_body'
+  post 'calculate_bmi',       :to => 'training#calculate_bmi'
+  post 'book_group',          :to => 'training#book_group'
+  get 'my_booking',           :to => 'training#my_booking'
+  post 'remove_booking',      :to => 'training#remove_booking'
+  post 'pick_day',            :to => 'training#pick_day'
+
+
+  resources :training
   resources :sessions
   resources :transactions, only: [:new, :create]
   resources :users, only: [:new, :create]

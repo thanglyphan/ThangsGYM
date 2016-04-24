@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
   belongs_to :coach
   belongs_to :item, :foreign_key=>'program_id'
+  belongs_to :group_exercise, :foreign_key=>'group_id'
+  has_many :all_my_bookings
   before_create { generate_token(:auth_token) } #NEW
 
   attr_accessor :password
-  attr_accessible :username, :email, :password, :password_confirmation, :admin, :auth_token, :coach_id, :change_limit, :program_id, :profile_pic #NEW
+  attr_accessible :username, :email, :password, :password_confirmation, :admin, :auth_token, :coach_id, :change_limit, :program_id, :profile_pic, :group_id #NEW
   EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i #For validation of email i use this regex.
   validates :username, :presence      => true,
             :uniqueness               => true,
@@ -116,6 +118,18 @@ class User < ActiveRecord::Base
   def self.add_profilepic(currentuser, pic)
     user = currentuser
     user.profile_pic = pic
+    user.save
+  end
+
+  def self.add_group_id(currentuser, group)
+    user = currentuser
+    user.group_id = group.id
+    user.save
+  end
+
+  def self.remove_group_id(currentuser)
+    user = currentuser
+    user.group_id = nil
     user.save
   end
 

@@ -1,0 +1,28 @@
+<div class="jumbotron">
+  <div class="container">
+
+    <%= form_tag(:action => 'pick_day') do %>
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="submit" name="day" value="Today" class="btn btn-default">Today</button>
+          <button type="submit" name="day" value="Monday" class="btn btn-default">Monday</button>
+          <button type="submit" name="day" value="Tuesday" class="btn btn-default">Tuesday</button>
+          <button type="submit" name="day" value="Wednesday" class="btn btn-default">Wednesday</button>
+          <button type="submit" name="day" value="Thursday" class="btn btn-default">Thursday</button>
+          <button type="submit" name="day" value="Friday" class="btn btn-default">Friday</button>
+          <button type="submit" name="day" value="Saturday" class="btn btn-default">Saturday</button>
+          <button type="submit" name="day" value="Sunday" class="btn btn-default">Sunday</button>
+        </div>
+    <% end %>
+<p></p>
+    <%= form_tag(:action => 'book_group') do %>
+        <% for groups in @group_training do %>
+            <% if groups.weekday == session[:day] %>
+                <p><strong><%= groups.id %> <%= groups.weekday %> <%= groups.time %> <%= groups.name %> <%= groups.place %> <%= groups.intructor %> <%= groups.available_slots %>
+                  <button type="submit" value="<%= groups.id%>" name="id" class="btn btn-default">Book</button>
+                </strong>
+                </p>
+            <% end %>
+        <% end %>
+    <% end %>
+  </div>
+</div>

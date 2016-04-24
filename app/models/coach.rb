@@ -11,5 +11,4 @@ class Coach < ActiveRecord::Base
     coach.clients = coach.clients-1
     coach.save
   end
-
 end
