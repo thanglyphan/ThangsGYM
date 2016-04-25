@@ -40,7 +40,7 @@
                     <td><%= groups.intructor %></td>
                     <td><%= groups.available_slots %></td>
                     <td><button type="submit" value="<%= groups.id%>" name="id" class="btn btn-default">Book</button></td>
-                    <td><button type="button" class="open-showInfoModal btn btn-default" data-toggle="modal" data-id="<%= groups.info %>" data-target="#showInfoModal"%>Show info </button></td>
+                    <td><button type="button" class="open-showInfoModal btn btn-default" data-toggle="modal" data-ids="About <%= groups.name %>" data-id="<%= groups.info %>" data-target="#showInfoModal"%>Show info </button></td>
                   </tr>
                   </strong>
                   </p>
@@ -61,7 +61,11 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h2 class="modal-title">Information about this course</h2>
+        <h2 class="modal-title">
+
+          <p id="title"></p>
+
+        </h2>
       </div>
       <div class="modal-body">
 
@@ -71,6 +75,11 @@
           $(document).on("click", ".open-showInfoModal", function () {
             var myGroupId = $(this).data('id');
             var element = document.getElementById("infoOnTheCourse");
+
+            var myTitle = $(this).data('ids')
+            var el = document.getElementById("title");
+
+            el.innerHTML = myTitle;
             element.innerHTML = myGroupId;
           });
         </script>
