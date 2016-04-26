@@ -1,2 +1,67 @@
-Oppgavedefinisjon, RoR. Github-brukernavn: thanglyphan Hva skal applikasjonen gjøre?              - Applikasjonen skal gi brukere mulighet for å kjøpe treningsprogram og velge om brukeren               vil ha en coach ved siden av. Vil ha mulighet for å registrere gruppetimer i tillegg. Hvilke forretningsområde skal dekkes? -Det skal dekkes et treningssenters behov, der treningssenteret tilbyr coaching slik at kundene kan få en god start på veien til scenen.Brukergrupper jeg forventer: -Aktive folk -Nybegynnere innenfor trening -Viderekommende innenfor trening -Gutter og jenter i alle aldere Features applikasjonen SKAL inneholde: -Det skal være mulig for en bruker å registrere seg -Det skal være mulig for en bruker å endre passord -Det skal være mulig for en bruker å glemme passord -Det skal være mulig for en bruker å kjøpe treningsprogram u/coach -Det skal være mulig for en bruker å kjøpe treningsprogram m/coach -Det skal være mulig for en bruker å se profilen, hvilke coach som coacher -Det skal være mulig for en bruker å sist kjøpte treningsprogram -Det skal være mulig for en bruker å endre coach -Det skal være mulig for en bruker å hente profilbilde/logge inn med facebook -Det skal være mulig for en bruker å subscribe på siden -Det skal være mulig for en bruker å få mail av meg(auto) -Det skal være mulig for en bruker å velge skjønn og få riktig treningsprogram ut fra det -Det skal IKKE være mulig for en bruker å se på profil osv. uten innlogging -Det skal IKKE være mulig for en bruker å se på admin siden -Det skal IKKE være mulig for en bruker å "CRUD" items -Det skal være mulig for en admin å gjøre alt en bruker kan gjøre-Det skal være mulig for en admin å søke opp brukere og endre opplysninger om den -Det skal være mulig for en admin å "CRUD" items som er lagt inn i databasen -Det skal være mulig for en admin å legge til ny coach/fjerne -Det skal være mulig for en admin å gi bruker flere bytter av coach(max 3) -Det skal være mulig for en admin å gjøre flere ting også 
-Høynivå skisse på applikasjonen som viser eksterne API'er. -Sendgrid, braintree. Mer? (helt sikkert facebook) Høynivå skisse på skjermbilder som viser flyten av applikasjonen. thangomango.herokuapp.com Jeg begynte litt fordi jeg følte jeg lå altfor langt bak. Dette er en side som er oppe og går. Jeg vil si at dette er en skisse, fordi den er ikke ferdig, tvert i mot. Jeg føler at det kommer ideer underveis, og listen min blir nok litt lengre enn det jeg har skrevet over! 
+**Oppgave definisjon RoR**
+
+**Git-brukernavn: _thanglyphan_**
+
+**_Hva skal applikasjonen gjÃ¸re?_**
+> Det skal dekkes et treningssenters behov, der treningssenteret tilbyr coaching slik at kundene kan fÃ¥ en god start pÃ¥ veien til scenen.
+
+**_Brukergrupper jeg forventer:_**
+
+> -Aktive folk 
+
+> -Nybegynnere innenfor trening 
+
+> -Viderekommende innenfor trening 
+
+> -Gutter og jenter i alle aldere
+
+**_Features applikasjonen SKAL inneholde: _**
+
+> -Det skal vÃ¦re mulig for en bruker Ã¥ registrere seg 
+
+> -Det skal vÃ¦re mulig for en bruker Ã¥ endre passord 
+
+> -Det skal vÃ¦re mulig for en bruker Ã¥ glemme passord 
+
+> -Det skal vÃ¦re mulig for en bruker Ã¥ kjÃ¸pe treningsprogram u/coach 
+
+> -Det skal vÃ¦re mulig for en bruker Ã¥ kjÃ¸pe treningsprogram m/coach 
+
+> -Det skal vÃ¦re mulig for en bruker Ã¥ se profilen, hvilke coach som coacher 
+
+> -Det skal vÃ¦re mulig for en bruker Ã¥ sist kjÃ¸pte treningsprogram 
+
+> -Det skal vÃ¦re mulig for en bruker Ã¥ endre coach 
+
+> -Det skal vÃ¦re mulig for en bruker Ã¥ hente profilbilde/logge inn med facebook 
+
+> -Det skal vÃ¦re mulig for en bruker Ã¥ subscribe pÃ¥ siden 
+
+> -Det skal vÃ¦re mulig for en bruker Ã¥ fÃ¥ mail av meg(auto) 
+
+> -Det skal vÃ¦re mulig for en bruker Ã¥ velge skjÃ¸nn og fÃ¥ riktig treningsprogram ut fra det 
+
+> -Det skal IKKE vÃ¦re mulig for en bruker Ã¥ se pÃ¥ profil osv. uten innlogging -Det skal IKKE vÃ¦re mulig for en bruker Ã¥ se pÃ¥ admin siden 
+
+> -Det skal IKKE vÃ¦re mulig for en bruker Ã¥ "CRUD" items 
+
+> -Det skal vÃ¦re mulig for en admin Ã¥ gjÃ¸re alt en bruker kan gjÃ¸re
+
+> -Det skal vÃ¦re mulig for en admin Ã¥ sÃ¸ke opp brukere og endre opplysninger om den 
+
+> -Det skal vÃ¦re mulig for en admin Ã¥ "CRUD" items som er lagt inn i databasen 
+
+> -Det skal vÃ¦re mulig for en admin Ã¥ legge til ny coach/fjerne 
+
+> -Det skal vÃ¦re mulig for en admin Ã¥ gi bruker flere bytter av coach(max 3) 
+
+> -Det skal vÃ¦re mulig for en admin Ã¥ gjÃ¸re flere ting ogsÃ¥
+
+**_HÃ¸ynivÃ¥ skisse pÃ¥ applikasjonen som viser eksterne API'er._**
+
+> -Sendgrid, braintree. Mer? (helt sikkert facebook) 
+
+**_HÃ¸ynivÃ¥ skisse pÃ¥ skjermbilder som viser flyten av applikasjonen._**
+> thangomango.herokuapp.com 
+
+Jeg begynte litt fordi jeg fÃ¸lte jeg lÃ¥ altfor langt bak. Dette er en side som er oppe og gÃ¥r. Jeg vil si at dette er en skisse, fordi den er ikke ferdig, tvert i mot. Jeg fÃ¸ler at det kommer ideer underveis, og listen min blir nok litt lengre enn det jeg har skrevet over!
