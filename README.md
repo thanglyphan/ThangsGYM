@@ -15,7 +15,7 @@
 
 > -Gutter og jenter i alle aldere
 
-**_Features applikasjonen SKAL inneholde: _**
+**_Features applikasjonen SKAL inneholde:_**
 
 > -Det skal være mulig for en bruker å registrere seg 
 
