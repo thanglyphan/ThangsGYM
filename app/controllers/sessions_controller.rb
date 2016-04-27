@@ -40,7 +40,11 @@ class SessionsController < ApplicationController
       else
         cookies[:auth_token] = authorized_user.auth_token #NEW
       end
-      User.add_faceuid(authorized_user, @current_facebookuser)
+      if authorized_user.faceuid.nil?
+        User.add_faceuid(authorized_user, @current_facebookuser)
+      else
+        authorized_user = nil
+      end
 
       redirect_to home_path #(:action => 'home')
     else
