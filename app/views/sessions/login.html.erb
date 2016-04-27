@@ -18,18 +18,18 @@
                 <script type="text/javascript">
                   $(window).load(function(){
                     $('#connectModalAlreadyLoggedIn').modal('show');
+                    $('#connectModal').modal('hide');
                   });
                 </script>
-                <% break %>
             <% end %>
             <% if @current_facebookuser.present? && fa.faceuid.nil? %>
                 <% if fa.faceuid.nil? %>
                     <script type="text/javascript">
                       $(window).load(function(){
                         $('#connectModal').modal('show');
+                        $('#connectModalAlreadyLoggedIn').modal('hide');
                       });
                     </script>
-                    <% break %>
                 <% end %>
             <% end %>
             <script type="text/javascript">
