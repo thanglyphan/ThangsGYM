@@ -21,7 +21,6 @@
                     $('#connectModalAlreadyLoggedIn').modal('show');
                     $('#connectModal').modal('hide');
                   });
-
                 </script>
                 <% break %>
                 <% elsif @current_facebookuser.present? && fa.faceuid.nil? %>
@@ -44,8 +43,6 @@
                 </script>
             <% end %>
             <%= fa.faceuid == @current_facebookuser.uid %>
-
-
         <% end %>
     <% else %>
         <script type="text/javascript">

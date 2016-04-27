@@ -34,7 +34,20 @@ module SessionsHelper
     end
   end
 
-  #STATUS POST METHOD
+  #VIEW LOGIC HERE
+  #0 = when users uid and face uid is equal
+  #1 = when users uid is null, but user have signed in as facebook
+  def check_face_and_user
+    if @current_facebookuser.present?
+      if fa.faceuid == @current_facebookuser.uid
+        return 0
+      elsif fa.faceuid.nil? && @current_facebookuser.present?
+        return 1
+      end
+    else
+      return 1
+    end
+  end
 
   #LOG OUT USER
   def logout
