@@ -7,20 +7,20 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-#Coach.create!(name: 'Roz Ily', limit: 30)
-#Coach.create!(name: 'Izak Wo', limit: 30)
-#Coach.create!(name: 'Hassan Hassani', limit: 30)
-#Coach.create!(name: 'Enza Corde', limit: 30)
-#Coach.create!(name: 'Zyzz Brah', limit: 30)
+Coach.create!(name: 'Roz Ily', limit: 30)
+Coach.create!(name: 'Izak Wo', limit: 30)
+Coach.create!(name: 'Hassan Hassani', limit: 30)
+Coach.create!(name: 'Enza Corde', limit: 30)
+Coach.create!(name: 'Zyzz Brah', limit: 30)
 
 
-#Item.create!(program: 'Strength', price: 10, picture: 'http://hillelnorry.com/wp-content/uploads/2015/09/dumbbell-strength.jpg')
-#Item.create!(program: 'Condition', price: 5, picture: 'http://bodysculptor.in/wp-content/uploads/2015/12/fasted-cardio.jpg')
-#Item.create!(program: 'Weightloss', price: 20, picture: 'http://www.tanazkahenmd.com/wp-content/uploads/2013/06/weight-loss.jpg')
+Item.create!(program: 'Strength', price: 10, picture: 'http://hillelnorry.com/wp-content/uploads/2015/09/dumbbell-strength.jpg')
+Item.create!(program: 'Condition', price: 5, picture: 'http://bodysculptor.in/wp-content/uploads/2015/12/fasted-cardio.jpg')
+Item.create!(program: 'Weightloss', price: 20, picture: 'http://www.tanazkahenmd.com/wp-content/uploads/2013/06/weight-loss.jpg')
 
-#a = User.find_by(:email => 'lyern52@gmail.com')
-#a.admin = true
-#a.save
+a = User.find_by(:email => 'lyern52@gmail.com')
+a.admin = true
+a.save
 
 
 GroupExercise.create!(weekday: 'Monday', time: '17:00', name: 'Cycling4x4', place: 'Thangs Gym Oslo', intructor: 'Thang Phan', available_slots: 40, info: 'En hard og effektiv kondisjonstime med 4x4 intervaller på sykkel. Denne timen passer for deg som vil ta formen til neste nivå. For moderat til godt trente')
