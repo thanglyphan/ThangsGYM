@@ -42,7 +42,7 @@ class SessionsController < ApplicationController
       end
       if authorized_user.faceuid.nil? && @current_facebookuser.present?
         User.add_faceuid(authorized_user, @current_facebookuser)
-      else
+      elsif authorized_user.faceuid.present? && @current_facebookuser.uid != authorized_user.faceuid
         flash[:notice] = "Noe gikk galt, prøv igjen" #User can not log in to other acc than own.
         cookies.delete(:auth_token) #NEW
       end
