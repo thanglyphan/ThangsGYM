@@ -43,8 +43,7 @@ class SessionsController < ApplicationController
       if authorized_user.faceuid.nil?
         User.add_faceuid(authorized_user, @current_facebookuser)
       else
-        @current_user = nil
-        @current_facebookuser = nil
+        return
       end
 
       redirect_to home_path #(:action => 'home')
