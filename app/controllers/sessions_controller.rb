@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
     a = User.find_by(:faceuid => @current_facebookuser.uid)
     authorized_user_by_facebook = User.authenticate(a.email, params[:login_password])
 
-    if authorized_user_by_facebook
+    if authorized_user_by_facebook && authorized_user_by_facebook.faceuid.present?
       cookies.permanent[:auth_token] = authorized_user_by_facebook.auth_token #NEW
       redirect_to home_path #(:action => 'home')
     else

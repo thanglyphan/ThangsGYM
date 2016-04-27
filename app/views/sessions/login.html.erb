@@ -69,8 +69,6 @@
             <p>Username or Email:</br> <%= text_field_tag(:username_or_email) %></p>
             <p>Password:</br> <%= password_field_tag :login_password %></p>
 
-            <%= label_tag :remember_me %>
-            <%= check_box_tag :remember_me, 1, params[:remember_me] %>
             <p></p>
             <td><button type="submit" class="btn btn-default">Koble til med facebook!</button></td>
         <% end %>
