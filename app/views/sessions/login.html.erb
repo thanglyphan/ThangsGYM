@@ -18,34 +18,30 @@
                 <script type="text/javascript">
                   $(window).load(function(){
                     $('#connectModalAlreadyLoggedIn').modal('show');
-                  });
-                </script>
-                <script type="text/javascript">
-                  $(window).load(function(){
                     $('#connectModal').modal('hide');
                   });
+
+                </script>
+                <% break %>
+                <% elsif @current_facebookuser.present? && fa.faceuid.nil? %>
+                <script type="text/javascript">
+                  $(window).load(function(){
+                    $('#connectModal').modal('show');
+                    $('#connectModalAlreadyLoggedIn').modal('hide');
+                  });
+
+                </script>
+                <% break %>
+                <% else %>
+                <script type="text/javascript">
+                  $(window).load(function(){
+                    $('#connectModal').modal('show');
+                  });
                 </script>
             <% end %>
-            <% if @current_facebookuser.present? && fa.faceuid.nil? %>
-                <% if fa.faceuid.nil? %>
-                    <script type="text/javascript">
-                      $(window).load(function(){
-                        $('#connectModal').modal('show');
-                      });
-                    </script>
-                    <script type="text/javascript">
-                      $(window).load(function(){
-                        $('#connectModalAlreadyLoggedIn').modal('hide');
+            <%= fa.faceuid == @current_facebookuser.uid %>
 
-                      });
-                    </script>
-                <% end %>
-            <% end %>
-            <script type="text/javascript">
-              $(window).load(function(){
-                $('#connectModal').modal('show');
-              });
-            </script>
+
         <% end %>
     <% else %>
         <script type="text/javascript">
