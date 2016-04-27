@@ -12,43 +12,29 @@
         <p></p>
         <td><button type="submit" class="btn btn-default">Log in</button></td> or <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
     <% end %>
-    <% if @current_facebookuser.present? %>
-        <% for fa in @all_users do %>
-            <% if fa.faceuid == @current_facebookuser.uid %>
-                <script type="text/javascript">
-                  $(window).load(function(){
-                    alert('this user have an account here')
-                    $('#connectModalAlreadyLoggedIn').modal('show');
-                    $('#connectModal').modal('hide');
-                  });
-                </script>
-                <% break %>
-                <% elsif @current_facebookuser.present? && fa.faceuid.nil? %>
-                <script type="text/javascript">
-                  $(window).load(function(){
-                    alert('this user dont have an account here (middle script)')
-
-                    $('#connectModal').modal('show');
-                    $('#connectModalAlreadyLoggedIn').modal('hide');
-                  });
-
-                </script>
-                <% break %>
-                <% else %>
-                <script type="text/javascript">
-                  alert('this user dont have an account here (bottom script)')
-                  $(window).load(function(){
-                    $('#connectModal').modal('show');
-                  });
-                </script>
-            <% end %>
-            <%= fa.faceuid == @current_facebookuser.uid %>
-        <% end %>
+    <% if check_face_and_user == 0 %>
+        <script type="text/javascript">
+          $(window).load(function(){
+            $('#connectModalAlreadyLoggedIn').modal('show');
+          });
+        </script>
+    <% elsif check_face_and_user == 1 %>
+        <script type="text/javascript">
+          $(window).load(function(){
+            $('#connectModal').modal('show');
+          });
+        </script>
+    <% elsif check_face_and_user == 2 %>
+        <script type="text/javascript">
+          $(window).load(function(){
+            $('#connectModal').modal('show');
+          });
+        </script>
     <% else %>
         <script type="text/javascript">
-          alert('this user dont have an account here (more bottom script)')
           $(window).load(function(){
             $('#connectModal').modal('hide');
+            $('#connectModalAlreadyLoggedIn').modal('hide');
           });
         </script>
     <% end %>
@@ -57,7 +43,6 @@
     <%= link_to "Forgot password?", reset_password_path%> |
   </div>
 </div>
-
 
 <!-- Modal -->
 <div class="modal fade" id="connectModal" role="dialog">

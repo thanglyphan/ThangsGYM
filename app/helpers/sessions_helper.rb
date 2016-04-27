@@ -37,15 +37,23 @@ module SessionsHelper
   #VIEW LOGIC HERE
   #0 = when users uid and face uid is equal
   #1 = when users uid is null, but user have signed in as facebook
+  #2 = when list is empty, no more users to search
+  #3 = when the modal needs to hide
   def check_face_and_user
+    i = 0
     if @current_facebookuser.present?
-      if fa.faceuid == @current_facebookuser.uid
-        return 0
-      elsif fa.faceuid.nil? && @current_facebookuser.present?
-        return 1
+      for fa in @all_users do
+        i = i+1
+        if fa.faceuid == @current_facebookuser.uid
+          return 0
+        elsif fa.faceuid.nil? && @current_facebookuser.present?
+          return 1
+        elsif i >= @all_users.length
+          return 2
+        end
       end
     else
-      return 1
+      return 3
     end
   end
 
