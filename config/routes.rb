@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   post 'pick_day',            :to => 'training#pick_day'
   get 'contact',              :to => 'sessions#contact'
   get 'review',               :to => 'sessions#review'
+  post 'delete_faceuid',      :to => 'sessions#delete_faceuid'
   get 'auth/:provider/callback', to: 'facebookusers#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'facebookusers#destroy', as: 'signout'

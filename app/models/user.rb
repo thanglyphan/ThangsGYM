@@ -144,6 +144,12 @@ class User < ActiveRecord::Base
     return username.to_s
   end
 
+  def self.delete_faceuid(current_facebookuser)
+    user = User.find_by(:faceuid => current_facebookuser.uid)
+    user.faceuid = nil
+    user.save
+  end
+
   def admin?
     self.admin
   end

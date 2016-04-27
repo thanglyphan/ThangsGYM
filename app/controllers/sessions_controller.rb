@@ -42,7 +42,7 @@ class SessionsController < ApplicationController
       end
       if authorized_user.faceuid.nil? && @current_facebookuser.present?
         User.add_faceuid(authorized_user, @current_facebookuser)
-      elsif authorized_user.faceuid.present? && @current_facebookuser.uid != authorized_user.faceuid
+      elsif authorized_user.faceuid.present? && @current_facebookuser.present? && @current_facebookuser.uid != authorized_user.faceuid
         flash[:notice] = "Noe gikk galt, prøv igjen" #User can not log in to other acc than own.
         cookies.delete(:auth_token) #NEW
       end
@@ -52,6 +52,11 @@ class SessionsController < ApplicationController
       flash[:notice] = "Invalid Username or Password"
       render "login"
     end
+  end
+
+  def delete_faceuid
+    User.delete_faceuid(@current_facebookuser)
+    redirect_to(:back)
   end
 
   def status
@@ -89,7 +94,6 @@ class SessionsController < ApplicationController
           flash[:notice] = "Coach is selected" #TODO: Change this to use coach table(database)
           User.add_program(params[:program], @current_user)
           redirect_to payment_path #(:action => 'payment')
-
         else
           User.add_program(params[:program], @current_user)
           redirect_to payment_path
