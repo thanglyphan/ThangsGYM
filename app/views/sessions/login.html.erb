@@ -17,6 +17,7 @@
             <% if fa.faceuid == @current_facebookuser.uid %>
                 <script type="text/javascript">
                   $(window).load(function(){
+                    alert('this user have an account here')
                     $('#connectModalAlreadyLoggedIn').modal('show');
                     $('#connectModal').modal('hide');
                   });
@@ -26,6 +27,8 @@
                 <% elsif @current_facebookuser.present? && fa.faceuid.nil? %>
                 <script type="text/javascript">
                   $(window).load(function(){
+                    alert('this user dont have an account here (middle script)')
+
                     $('#connectModal').modal('show');
                     $('#connectModalAlreadyLoggedIn').modal('hide');
                   });
@@ -34,6 +37,7 @@
                 <% break %>
                 <% else %>
                 <script type="text/javascript">
+                  alert('this user dont have an account here (bottom script)')
                   $(window).load(function(){
                     $('#connectModal').modal('show');
                   });
@@ -45,6 +49,7 @@
         <% end %>
     <% else %>
         <script type="text/javascript">
+          alert('this user dont have an account here (more bottom script)')
           $(window).load(function(){
             $('#connectModal').modal('hide');
           });
