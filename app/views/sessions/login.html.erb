@@ -12,7 +12,7 @@
         <p></p>
         <td><button type="submit" class="btn btn-default">Log in</button></td> or <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
     <% end %>
-    <% if session[:facebookuser_id].present? %>
+    <% if @current_facebookuser.present? %>
         <% for fa in @all_users do %>
             <% if fa.faceuid == @current_facebookuser.uid %>
                 <script type="text/javascript">
@@ -22,7 +22,7 @@
                 </script>
                 <% break; %>
             <% end %>
-            <% if @current_facebookuser.present? && fa.faceuid.nil?%>
+            <% if @current_facebookuser.present? && fa.faceuid.nil? %>
                 <% if fa.faceuid.nil? %>
                     <script type="text/javascript">
                       $(window).load(function(){
@@ -32,6 +32,11 @@
                     <% break; %>
                 <% end %>
             <% end %>
+            <script type="text/javascript">
+              $(window).load(function(){
+                $('#connectModal').modal('show');
+              });
+            </script>
         <% end %>
     <% else %>
         <script type="text/javascript">
