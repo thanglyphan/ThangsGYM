@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d71fb4f-0683-48cd-b867-263e50a58ac9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/sessions/login.html.erb" afterPath="$PROJECT_DIR$/app/views/sessions/login.html.erb" />
     </list>
     <ignored path="Thangomango.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html.erb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/sessions/login.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.846153">
-              <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.5555556">
+              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -58,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sessions_controller.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sessions_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5042373">
-              <caret line="43" column="64" selection-start-line="43" selection-start-column="64" selection-end-line="43" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -125,8 +125,8 @@
         <option value="$PROJECT_DIR$/app/views/sessions/profile.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/helpers/sessions_helper.rb" />
-        <option value="$PROJECT_DIR$/app/views/sessions/login.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/sessions/login.html.erb" />
       </list>
     </option>
   </component>
@@ -1026,18 +1026,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/sessions/login.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.846153">
-          <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/sessions/login.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5042373">
-          <caret line="43" column="64" selection-start-line="43" selection-start-column="64" selection-end-line="43" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.5555556">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>
