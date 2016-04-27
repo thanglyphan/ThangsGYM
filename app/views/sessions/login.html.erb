@@ -20,6 +20,7 @@
                     $('#connectModalAlreadyLoggedIn').modal('show');
                   });
                 </script>
+                <% break %>
             <% end %>
             <% if @current_facebookuser.present? && fa.faceuid.nil? %>
                 <% if fa.faceuid.nil? %>
@@ -28,6 +29,7 @@
                         $('#connectModal').modal('show');
                       });
                     </script>
+                    <% break %>
                 <% end %>
             <% end %>
             <script type="text/javascript">
