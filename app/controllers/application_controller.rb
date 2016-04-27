@@ -3,11 +3,20 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  before_action :current_facebookuser
+  before_action :all_users
 
+  def all_users
+    @all_users = User.all
+  end
+
+  def current_facebookuser
+    @current_facebookuser ||= Facebookuser.find(session[:facebookuser_id]) if session[:facebookuser_id]
+  end
 
   protected
   def authenticate_user
-    if cookies[:auth_token]#session[:user_id]
+    if cookies[:auth_token] #session[:user_id]
       # set current user object to @current_user object variable
       @items = Item.all.map{|i| [ i.program]} #Add all items to this variable at start when rendering logging in.
       @coaches = Coach.all.map{|c| [c.name]}
@@ -30,7 +39,7 @@ class ApplicationController < ActionController::Base
   end
 
   def save_login_state
-    if cookies[:auth_token] #session[:user_id]
+    if cookies[:auth_token]#session[:user_id]
       redirect_to home_path
       return false
     else

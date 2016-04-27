@@ -18,19 +18,31 @@ class SessionsController < ApplicationController
     render 'review'
   end
 
+  def login_attempt_with_facebook
+    a = User.find_by(:faceuid => @current_facebookuser.uid)
+    authorized_user_by_facebook = User.authenticate(a.email, params[:login_password])
+
+    if authorized_user_by_facebook
+      cookies.permanent[:auth_token] = authorized_user_by_facebook.auth_token #NEW
+      redirect_to home_path #(:action => 'home')
+    else
+      flash[:notice] = "Invalid Username or Password"
+      render "login"
+    end
+  end
+
   def login_attempt
     authorized_user = User.authenticate(params[:username_or_email],params[:login_password])
 
     if authorized_user
       if params[:remember_me] #NEW
         cookies.permanent[:auth_token] = authorized_user.auth_token #NEW
-        flash[:notice] = "YES remember" #DEBUG LITTLE BIT
-
       else
-        flash[:notice] = "NO remember" #DEBUG LITTLE BIT
         cookies[:auth_token] = authorized_user.auth_token #NEW
       end
-      #session[:user_id] = authorized_user.id
+      if(authorized_user.faceuid.nil? && @current_facebookuser.present?)
+        User.add_faceuid(authorized_user, @current_facebookuser)
+      end
       redirect_to home_path #(:action => 'home')
     else
       flash[:notice] = "Invalid Username or Password"
@@ -135,7 +147,11 @@ class SessionsController < ApplicationController
   end
 
   def profile_pic_upload
-    User.add_profilepic(@current_user, "https://s-media-cache-ak0.pinimg.com/736x/97/22/6f/97226ffd114a2ba3b2f620ae9bf1d86e.jpg")
+    if @current_facebookuser.present?
+      User.add_profilepic(@current_user, "http://graph.facebook.com/" + @current_user.faceuid + "/picture")
+    else
+      User.add_profilepic(@current_user, "https://s-media-cache-ak0.pinimg.com/736x/97/22/6f/97226ffd114a2ba3b2f620ae9bf1d86e.jpg")
+    end
     redirect_to (:back)
   end
 

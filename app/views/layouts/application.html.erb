@@ -45,8 +45,12 @@
                   <% else %>
                       <img src="<%= @current_user.profile_pic %>" width="30" height="30" class="img-circle special-img">
                   <% end %>
-                  <%="Hi, #{@current_user.username}!"%><span class="caret"></span></a>
-                <ul class="dropdown-menu">
+                  <% if @current_facebookuser.present? %>
+                      <%= "Hi, #{@current_facebookuser.name}!"%><span class="caret"></span></a>
+                  <% else %>
+                      <%= "Hi, #{@current_user.username}!"%><span class="caret"></span></a>
+                  <% end %>
+                  <ul class="dropdown-menu">
                   <li><a href="status">Status</a></li>
                   <li><a href="my_booking">My bookings</a></li>
                   <li role="separator" class="divider"></li>

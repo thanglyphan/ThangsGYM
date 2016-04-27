@@ -2,13 +2,17 @@
 
 <div class="jumbotron">
   <div class="container">
-    <h1>Halla, <%= @current_user.username%>! </h1>
+    <% if @current_facebookuser.present? %>
+        <h1>Halla, <%= @current_facebookuser.name%>! </h1>
+    <% else %>
+        <h1>Halla, <%= @current_user.username%>! </h1>
+  <% end %>
     <p> Din email: <%= @current_user.email%> </p>
     <p> Du lagde denne brukeren: <%= @current_user.created_at%> </p>
     <p> Admin?: <%= @current_user.admin? %> </p>
 
     <%= form_tag(:action => 'profile_pic_upload') do %>
-        <%= submit_tag("Find pic, upload") %>
+        <%= submit_tag("Upload pic from facebook!") %>
     <% end %>
   </div>
 </div>

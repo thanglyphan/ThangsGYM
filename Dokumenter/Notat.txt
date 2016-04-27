@@ -1,1 +1,1 @@
-- Sjekk respond_to istedenfor redirect_to()
+- Knytte facebook kontoen til vanlig konto i databasen.

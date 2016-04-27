@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160424182948) do
+ActiveRecord::Schema.define(version: 20160427091834) do
 
   create_table "all_my_bookings", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -28,9 +28,20 @@ ActiveRecord::Schema.define(version: 20160424182948) do
     t.integer  "clients",    limit: 4,   default: 0
   end
 
+  create_table "facebookusers", force: :cascade do |t|
+    t.string   "provider",         limit: 255
+    t.string   "uid",              limit: 255
+    t.string   "name",             limit: 255
+    t.string   "email",            limit: 255
+    t.string   "oauth_token",      limit: 255
+    t.datetime "oauth_expires_at"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
   create_table "group_exercises", force: :cascade do |t|
     t.string   "weekday",         limit: 255
-    t.integer  "time",            limit: 4
+    t.string   "time",            limit: 255
     t.string   "name",            limit: 255
     t.string   "place",           limit: 255
     t.string   "intructor",       limit: 255
@@ -70,6 +81,7 @@ ActiveRecord::Schema.define(version: 20160424182948) do
     t.integer  "program_id",         limit: 4
     t.string   "profile_pic",        limit: 255
     t.integer  "group_id",           limit: 4
+    t.string   "faceuid",            limit: 255
   end
 
   add_index "users", ["coach_id"], name: "index_users_on_coach_id", using: :btree

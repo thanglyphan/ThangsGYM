@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'facebookusers/create'
+
+  get 'facebookusers/destroy'
+
   root :to => 'sessions#login'
 
   get 'login',                :to => 'sessions#login'
   post 'login_attempt',       :to => 'sessions#login_attempt'
+  post 'login_attempt_with_facebook', :to =>'sessions#login_attempt_with_facebook'
   post 'change_password',     :to => 'sessions#change_password'
   get 'reset_password',       :to => 'sessions#reset_password'
   post 'reset_pw',            :to => 'sessions#reset_pw'
@@ -38,6 +43,11 @@ Rails.application.routes.draw do
   post 'pick_day',            :to => 'training#pick_day'
   get 'contact',              :to => 'sessions#contact'
   get 'review',               :to => 'sessions#review'
+  get 'auth/:provider/callback', to: 'facebookusers#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'facebookusers#destroy', as: 'signout'
+
+  resources :facebookusers, only: [:create, :destroy]
 
 
   resources :training

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   before_create { generate_token(:auth_token) } #NEW
 
   attr_accessor :password
-  attr_accessible :username, :email, :password, :password_confirmation, :admin, :auth_token, :coach_id, :change_limit, :program_id, :profile_pic, :group_id #NEW
+  attr_accessible :username, :email, :password, :password_confirmation, :admin, :auth_token, :coach_id, :change_limit, :program_id, :profile_pic, :group_id, :faceuid #NEW
   EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i #For validation of email i use this regex.
   validates :username, :presence      => true,
             :uniqueness               => true,
@@ -30,6 +30,12 @@ class User < ActiveRecord::Base
     begin
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
+  end
+
+  def self.add_faceuid(authorized_user, facebookuser)
+    user = authorized_user
+    user.faceuid = facebookuser.uid
+    user.save!
   end
 
   def encrypt_password

@@ -42,15 +42,16 @@ group :development do
 end
 
 gem 'rails_12factor', group: :production
-
+gem 'nokogiri', '~> 1.6.8.rc2'
 gem 'gon', '~> 5.1.2'
 gem 'braintree', '~> 2.33.1'
 gem "cancancan"
 gem "figaro"
 gem 'coffee-script-source', '1.8.0'
-gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'bcrypt'
 gem 'protected_attributes'
 gem 'sendgrid'
+gem 'omniauth-facebook', '~> 1.4.1'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

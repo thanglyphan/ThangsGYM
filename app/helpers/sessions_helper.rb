@@ -38,6 +38,8 @@ module SessionsHelper
 
   #LOG OUT USER
   def logout
+    session[:facebookuser_id] = nil
+    @current_facebookuser = nil
     cookies.delete(:auth_token) #NEW
     redirect_to :action => 'login'
   end
