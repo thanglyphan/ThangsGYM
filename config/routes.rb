@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   post 'add_subscription',    :to => 'sessions#add_subscription'
   post 'remove_subscription', :to => 'sessions#remove_subscription'
   post 'profile_pic_upload',  :to => 'sessions#profile_pic_upload'
+  post 'add_comment',         :to => 'sessions#add_comment'
+  post 'delete_comment',      :to => 'sessions#delete_comment'
   get 'adminpage',            :to => 'admins#admin'
   post 'update_items',        :to => 'admins#update_items'
   post 'delete_items',        :to => 'admins#delete_items'

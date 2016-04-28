@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 
   def all_users
     @all_users = User.all
+    @all_reviews = Review.all
   end
 
   def current_facebookuser

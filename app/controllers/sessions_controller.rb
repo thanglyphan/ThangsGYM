@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   include SessionsHelper
-  before_filter :authenticate_user, :only => [:home, :profile, :setting, :payment, :admin, :training]
-  before_filter :save_login_state, :only => [:login, :login_attempt]
+  before_filter :authenticate_user, :only => [:home, :profile, :setting, :payment, :admin, :training], :except => [:add_comment]
+  before_filter :save_login_state, :only => [:login, :login_attempt], :except => [:add_comment]
   before_action :load_user_and_subs, :only =>[:home, :profile, :setting, :payment, :admin, :training]
   attr_accessor :items
   before_action :get_user #Put this here to use @current_user all place in here
@@ -16,6 +16,26 @@ class SessionsController < ApplicationController
 
   def review
     render 'review'
+  end
+
+  def delete_comment
+    @comment = Review.find_by(:id => params[:id])
+    Review.delete_comment(@comment)
+    redirect_to(:back)
+  end
+
+  def add_comment
+    @input = params[:my_comment]
+    if @input.present?
+      if @current_facebookuser.present? && @current_user.present?
+        Review.add_commentfacebook(@input, @current_facebookuser.uid, @current_facebookuser.name)
+      elsif @current_user.present?
+        Review.add_comment(@input, @current_user.profile_pic, @current_user.username)
+      else
+        Review.add_comment(@input, nil, "Gjest")
+      end
+    end
+    redirect_to(:back)
   end
 
   def login_attempt_with_facebook

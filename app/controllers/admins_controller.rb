@@ -15,6 +15,7 @@ class AdminsController < ApplicationController
     end
   end
 
+
   def add_items #create
     Item.add_item(params[:program], params[:price], params[:picture])
 
