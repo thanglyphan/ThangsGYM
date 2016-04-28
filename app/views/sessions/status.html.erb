@@ -2,13 +2,13 @@
 
 <div class="jumbotron">
   <div class="container">
-    <p><strong>Your recent purchase: <%= @current_user.program %> program</strong></p>
+    <p><strong>Ditt nyeste kjøp: <%= @current_user.program %> program</strong></p>
 
     <% if @current_user.coach.nil? %>
-        <p> :) </p>
+        <p> Ingen kjøp :( </p>
     <% else %>
-        <p><strong>Your coach is: <%= @current_user.coach.name %></strong></p>
-        <p>Change coach? You can change coach <%= @current_user.change_limit %> times!</p>
+        <p><strong>Din coach er: <%= @current_user.coach.name %></strong></p>
+        <p>Endre coach? Du kan endre coach: <%= @current_user.change_limit %> ganger!</p>
 
         <%= form_tag(:action => 'select_coach') do %>
             <%= select_tag(:coach, options_for_select(@coaches), {include_blank: 'COACHES'})%>
@@ -16,7 +16,7 @@
         <% end %>
 
         <% for st in Coach.all do%>
-            <p> <strong><%= st.name %></strong> is now coaching: <strong><%= st.clients %>/<%= st.limit%></strong></p>
+            <p> <strong><%= st.name %></strong> coacher nå: <strong><%= st.clients %>/<%= st.limit%></strong></p>
         <% end %>
 
 

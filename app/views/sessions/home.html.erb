@@ -22,14 +22,14 @@
         <% end %>
         <p></p>
 
-        <%= select_tag(:program, options_for_select(@items), {include_blank: 'PROGRAMS'})%>
+        <%= select_tag(:program, options_for_select(@items), {include_blank: 'PROGRAMMER'})%>
 
         <%= label_tag :need_coach? %>
         <%= check_box_tag :need_coach?, 1, params[:need_coach?] %>
 
-        <%= submit_tag("Choose") %>
+        <%= submit_tag("Velg") %>
     <% end %>
-    <p>If coach is chosen, you will be presented all available coaches when checkout.</p>
+    <p>Dersom coach er valgt, vil du bli presentert av alle mulige coacher ved checkout.</p>
 
 
     <p><%= flash[:notice] %></p>

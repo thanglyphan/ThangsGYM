@@ -5,9 +5,9 @@
 
       <p><strong><%=@current_user.item.program %> for <%=@current_user.gender %>s - <%=@current_user.item.price%>$ </strong></p>
       <p><strong>-------</strong></p>
-      <p><strong>Total: <%=@current_user.item.price%>$</strong></p>
+      <p><strong>Totalt: <%=@current_user.item.price%>$</strong></p>
 
-      <p>Please enter your payment details:</p>
+      <p>Vennligst legg til din betalings informasjon:</p>
       <%= form_tag transactions_path do%>
           <div id="dropin"></div>
           <%=submit_tag "Pay #{@current_user.item.price}$", class: 'button mt1' %>

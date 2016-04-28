@@ -11,7 +11,7 @@
   <p></p>
   <% if session[:couch?] %>
       <% for st in @coaches_stats do%>
-          <p> <strong><%= st.name %></strong> is now coaching: <strong><%= st.clients %>/<%= st.limit%></strong></p>
+          <p> <strong><%= st.name %></strong> coacher nå: <strong><%= st.clients %>/<%= st.limit%></strong></p>
       <% end %>
     <%= form_tag(:action => 'select_coach') do %>
         <%= select_tag(:coach, options_for_select(@coaches), {include_blank: 'COACHES'})%>

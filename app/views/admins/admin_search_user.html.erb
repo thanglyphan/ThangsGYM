@@ -2,51 +2,51 @@
 <div class="jumbotron">
   <div class="container">
     <% if @that_user.nil?%>
-        <p><strong>User does not exist, try again. </strong></p>
+        <p><strong>Bruker eksisterer ikke, prøv igjen. </strong></p>
     <% else %>
-        <p><strong>You have searched for: <%= @that_user.username %>.</strong></p>
+        <p><strong>Du har søkt for: <%= @that_user.username %>.</strong></p>
         <p><strong>E-mail: <%= @that_user.email %>. </strong></p>
 
-        <p><strong>Can change coach: <%= @that_user.change_limit %>/3 </strong></p>
+        <p><strong>Kan endre sin coach: <%= @that_user.change_limit %>/3 </strong></p>
 
         <% if !@that_user.gender.nil?%>
-            <p><strong>Gender: <%= @that_user.gender %> </strong></p>
+            <p><strong>Skjønn: <%= @that_user.gender %> </strong></p>
         <% else %>
-            <p><strong>Gender not set. </strong></p>
+            <p><strong>Skjønn ikke satt. </strong></p>
         <% end %>
 
 
         <% if !@that_user.coach.nil?%>
             <p><strong>Coach: <%= @that_user.coach.name %> </strong></p>
         <% else %>
-            <p><strong>No coach. </strong></p>
+            <p><strong>Ingen coach. </strong></p>
         <% end %>
 
 
         <div class="Left">
           <%= form_tag(:action => 'update_change_limit') do %>
-              <p><strong>Change users change limit</strong></p>
+              <p><strong>Endre brukerens bytte av coach</strong></p>
               <p>Limit:</br> <%= text_field_tag(:limit) %></p>
-              <%= submit_tag("Make change") %>
+              <%= submit_tag("Oppdater") %>
           <% end %>
         </div>
 
         <div class="Center">
           <% if @that_user.coach.nil?%>
               <%= form_tag(:action => 'update_coach') do %>
-                  <p><strong>Add coach to user</strong></p>
-                  <p>Choose coach:</p>
+                  <p><strong>Legg til coach hos bruker</strong></p>
+                  <p>Endre coach:</p>
                   <%= select_tag(:coach, options_for_select(@coaches))%>
                   <p></p>
-                  <%= submit_tag("Add coach") %>
+                  <%= submit_tag("Legg til coach") %>
               <% end %>
           <% else %>
               <%= form_tag(:action => 'update_coach') do %>
-                  <p><strong>Change users coach</strong></p>
-                  <p>Choose coach:</p>
+                  <p><strong>Endre brukerens coach</strong></p>
+                  <p>Endre coach:</p>
                   <%= select_tag(:coach, options_for_select(@coaches))%>
                   <p></p>
-                  <%= submit_tag("Make change") %>
+                  <%= submit_tag("Oppdater") %>
               <% end %>
           <% end %>
 
@@ -54,8 +54,8 @@
 
         <div class="Right">
           <%= form_tag(:action => 'delete_user') do %>
-              <p><strong>Delete this user?</strong></p>
-              <%= submit_tag("Delete!") %>
+              <p><strong>Fjern brukeren?</strong></p>
+              <%= submit_tag("Fjern!") %>
           <% end %>
         </div>
         <p></p>

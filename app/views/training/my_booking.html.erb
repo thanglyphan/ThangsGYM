@@ -1,7 +1,7 @@
 <div class="jumbotron">
   <div class="container">
 
-    <p>Your past bookings</p>
+    <p>Dine tidligere bookings</p>
     <% for bookings in @list_of_bookings do %>
         <% if @current_user.id == bookings.user_id %>
             <% if bookings == @list_of_bookings.last %>
@@ -15,7 +15,7 @@
         <% end %>
     <% end %>
     <p></p>
-    <p>Your recently bookings: </p>
+    <p>Din nyeste booking: </p>
     <% if !@current_user.group_exercise.nil?%>
 
         <%= form_tag(:action => 'remove_booking') do %>
