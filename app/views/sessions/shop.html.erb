@@ -1,0 +1,38 @@
+
+<div class="jumbotron">
+  <div class="container">
+    <%=flash[:alert]%>
+
+    <%= form_tag(:action => 'choose_program') do %>
+        <% if @current_user.gender == "male" %>
+            <%= radio_button_tag(:gender, "male", true) %>
+            <%= label_tag(:gender, "Male") %>
+            <%= radio_button_tag(:gender, "female") %>
+            <%= label_tag(:gender, "Female") %>
+        <% elsif @current_user.gender == "female"%>
+            <%= radio_button_tag(:gender, "male") %>
+            <%= label_tag(:gender, "Male") %>
+            <%= radio_button_tag(:gender, "female", true) %>
+            <%= label_tag(:gender, "Female") %>
+        <% else %>
+            <%= radio_button_tag(:gender, "male") %>
+            <%= label_tag(:gender, "Male") %>
+            <%= radio_button_tag(:gender, "female") %>
+            <%= label_tag(:gender, "Female") %>
+        <% end %>
+        <p></p>
+
+        <%= select_tag(:program, options_for_select(@items), {include_blank: 'PROGRAMMER'})%>
+
+        <%= label_tag :need_coach? %>
+        <%= check_box_tag :need_coach?, 1, params[:need_coach?] %>
+
+        <%= submit_tag("Velg") %>
+    <% end %>
+    <p>Dersom coach er valgt, vil du bli presentert av alle mulige coacher ved checkout.</p>
+
+
+    <p><%= flash[:notice] %></p>
+  </div>
+</div>
+

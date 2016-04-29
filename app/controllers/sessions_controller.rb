@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   include SessionsHelper
-  before_filter :authenticate_user, :only => [:home, :profile, :setting, :payment, :admin, :training], :except => [:add_comment]
+  before_filter :authenticate_user, :only => [:home, :shop,:profile, :setting, :payment, :admin, :training], :except => [:add_comment]
   before_filter :save_login_state, :only => [:login, :login_attempt], :except => [:add_comment]
   before_action :load_user_and_subs, :only =>[:home, :profile, :setting, :payment, :admin, :training]
   attr_accessor :items
@@ -16,6 +16,10 @@ class SessionsController < ApplicationController
 
   def review
     render 'review'
+  end
+
+  def shop
+    render 'shop'
   end
 
   def delete_comment

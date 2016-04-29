@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'logout',               :to => 'sessions#logout'
   get 'status',               :to => 'sessions#status'
   get 'home',                 :to => 'sessions#home'
+  get 'shop',                 :to => 'sessions#shop'
   get 'profile',              :to => 'sessions#profile'
   get 'setting',              :to => 'sessions#setting'
   get 'payment',              :to => 'sessions#payment'
