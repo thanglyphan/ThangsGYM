@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   def all_users
     @all_users = User.all
     @all_reviews = Review.all
+    #@my_photos = ::Instagram.media_popular
+    @my_photos = ::Instagram.user_recent_media(934284484, {:count => 20})
   end
 
   def current_facebookuser

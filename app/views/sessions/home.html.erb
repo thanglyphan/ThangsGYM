@@ -1,0 +1,11 @@
+<% @my_photos.each do |t| %>
+    <div class="col-sm-4 col-md-2">
+      <div class="thumbnail">
+        <%= image_tag t.images.low_resolution.url %>
+        <div class="caption">
+          <%= "Username: " +t.user.username %> <p></p>
+          <%= "Full name: " + t.user.full_name%>
+        </div>
+      </div>
+    </div>
+<% end %>

@@ -41,6 +41,7 @@ group :development do
   gem 'web-console', '~> 2.0'
 end
 
+gem 'instagram'
 gem 'rails_12factor', group: :production
 gem 'nokogiri', '~> 1.6.8.rc2'
 gem 'gon', '~> 5.1.2'

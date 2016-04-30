@@ -22,6 +22,7 @@ class SessionsController < ApplicationController
     render 'shop'
   end
 
+
   def delete_comment
     @comment = Review.find_by(:id => params[:id])
     Review.delete_comment(@comment)
