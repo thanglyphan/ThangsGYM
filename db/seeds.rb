@@ -14,24 +14,14 @@
 #Coach.create!(name: 'Zyzz Brah', limit: 30)
 
 
-#Item.create!(program: 'Strength', price: 10, picture: 'http://hillelnorry.com/wp-content/uploads/2015/09/dumbbell-strength.jpg')
-#Item.create!(program: 'Condition', price: 5, picture: 'http://bodysculptor.in/wp-content/uploads/2015/12/fasted-cardio.jpg')
-#Item.create!(program: 'Weightloss', price: 20, picture: 'http://www.tanazkahenmd.com/wp-content/uploads/2013/06/weight-loss.jpg')
+Item.create!(program: 'Strength', price: 10, picture: 'http://hillelnorry.com/wp-content/uploads/2015/09/dumbbell-strength.jpg')
+Item.create!(program: 'Condition', price: 5, picture: 'http://bodysculptor.in/wp-content/uploads/2015/12/fasted-cardio.jpg')
+Item.create!(program: 'Weightloss', price: 20, picture: 'http://www.tanazkahenmd.com/wp-content/uploads/2013/06/weight-loss.jpg')
 
 #a = User.find_by(:email => 'lyern52@gmail.com')
 #a.admin = true
 #a.save
 
-Review.create!(name: 'Test 1', comment:'En kommentar')
-Review.create!(name: 'Test 2', comment:'En kommentar')
-Review.create!(name: 'Test 3', comment:'En kommentar')
-Review.create!(name: 'Test 4', comment:'En kommentar')
-Review.create!(name: 'Test 5', comment:'En kommentar')
-Review.create!(name: 'Test 6', comment:'En kommentar')
-Review.create!(name: 'Test 7', comment:'En kommentar')
-Review.create!(name: 'Test 8', comment:'En kommentar')
-Review.create!(name: 'Test 9', comment:'En kommentar')
-Review.create!(name: 'Test10', comment:'En kommentar')
 
 #GroupExercise.create!(weekday: 'Monday', time: '17:00', name: 'Cycling4x4', place: 'Thangs Gym Oslo', intructor: 'Thang Phan', available_slots: 40, info: 'En hard og effektiv kondisjonstime med 4x4 intervaller på sykkel. Denne timen passer for deg som vil ta formen til neste nivå. For moderat til godt trente')
 #GroupExercise.create!(weekday: 'Tuesday', time: '17:00', name: 'Cage Challenge', place: 'Thangs Gym Oslo', intructor: 'Stine Bekker', available_slots: 40, info: 'Lær deg triksene i studioburet og få maks utbytte av effektiv og funksjonell trening i vår lekegrind! En rå og morsom time, intensiv og variert styrketrening. Morsomt, enkelt og tøft!' )
