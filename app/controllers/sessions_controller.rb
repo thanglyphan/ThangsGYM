@@ -98,10 +98,10 @@ class SessionsController < ApplicationController
     if @current_user == authorized_user
       UserMailer.change_pw_confirmed(authorized_user).deliver_now
       User.change_pw(params[:username_or_email], params[:login_new_password])
-      flash[:notice] = "Your password has been changed! :)"
+      flash[:notice] = "Ditt passord har blitt endret! :)"
       redirect_to setting_path
     else
-      flash[:error]= "Your old password/username/email does not match"
+      flash[:error]= "Feil brukernavn/email/passord, prøv igjen."
       redirect_to setting_path
     end
   end
@@ -111,12 +111,12 @@ class SessionsController < ApplicationController
     @current_item = Item.find_by(:program => params[:program])
     if add_gender!
       if @current_item.blank?
-        flash[:notice] = "You have to choose one program! Don't leave it blank."
+        flash[:notice] = "Du må velge ett program!"
         redirect_to shop_path #(:action => 'home')
       else
         if check_coach_valid #Check if user have selected coaching
           session[:couch?] = true #Set to true so user sees all coaches in payment view.
-          flash[:notice] = "Coach is selected" #TODO: Change this to use coach table(database)
+          flash[:notice] = "Coach er valgt"
           User.add_program(params[:program], @current_user)
           redirect_to payment_path #(:action => 'payment')
         else
