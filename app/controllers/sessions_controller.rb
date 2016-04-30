@@ -112,7 +112,7 @@ class SessionsController < ApplicationController
     if add_gender!
       if @current_item.blank?
         flash[:notice] = "You have to choose one program! Don't leave it blank."
-        redirect_to home_path #(:action => 'home')
+        redirect_to shop_path #(:action => 'home')
       else
         if check_coach_valid #Check if user have selected coaching
           session[:couch?] = true #Set to true so user sees all coaches in payment view.
