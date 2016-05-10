@@ -67,6 +67,49 @@ module SessionsHelper
 
   #PICTURE UPLOAD
 
+  def add_event_to_calendar
+    array = params[:datetext].split(' ')
+    array2 = array[0].split('/')
+    datetext = array2[1] + " " + check_month(array2[0]) + " " + array2[2]
+    Calender.add_event(datetext, params[:eventtext], params[:pricetext], array[1] + " " + array[2])
+    redirect_to(:back)
+  end
+
+  def delete_event
+    @event = Calender.find_by(:id => params[:id])
+    Calender.delete_event(@event)
+    redirect_to(:back)
+  end
+
+  def check_month(value)
+    case value
+      when '01'
+        return "Januar"
+      when '02'
+        return "Februar"
+      when '03'
+        return "Mars"
+      when '04'
+        return "April"
+      when '05'
+        return "Mai"
+      when '06'
+        return "Juni"
+      when '07'
+        return "Juli"
+      when '08'
+        return "August"
+      when '09'
+        return "September"
+      when '10'
+        return "Oktober"
+      when '11'
+        return "November"
+      when '12'
+        return "Desember"
+    end
+  end
+
 
 
 

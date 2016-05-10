@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row">
+      <%= form_tag(:action => 'add_event_to_calendar') do %>
+        <div class='col-sm-2'>
+          <input type='text' class="form-control" id='datetimepicker4' name="datetext" placeholder="Velg dato og tid"/>
+        </div>
+        <div class='col-sm-6'>
+          <input type='text' class="form-control" name='eventtext' placeholder="Event her"/>
+        </div>
+        <div class='col-sm-2'>
+          <input type='text' class="form-control" name='pricetext' placeholder="Kostnad"/>
+        </div>
+          <button type="submit" class="btn btn-default">Legg til event</button>
+      <% end %>
+    <script type="text/javascript">
+      $(function () {
+        $('#datetimepicker4').datetimepicker();
+      });
+    </script>
+  </div>
+  <%= flash[:notice] %>
+</div>
+
+<div class="container">
+  <h2>Kyoto</h2>
+  <p class="lead">
+    En kalender som viser hva vi skal i kyoto fra 11.juli til 18.juli
+  </p>
+
+  <div class="alert alert-warning">
+    <h4>Hvordan bruke dette</h4>
+    <p>For å bruke denne kalenderen, legg til en event.</p>
+  </div>
+
+  <hr />
+
+  <div class="agenda">
+    <div class="table-responsive">
+      <table class="table table-condensed table-bordered">
+        <thead>
+        <tr>
+          <th>Dato</th>
+          <th>Klokkeslett</th>
+          <th>Event</th>
+          <th>Kostnad</th>
+          <th>Ulike valg</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <% for event in @all_events do %>
+            <tr>
+              <td class="agenda-date" class="active" rowspan="1">
+                <div class="shortdate text-muted"><%= event.date %></div>
+              </td>
+              <td class="agenda-time">
+                <%= event.time %>
+              </td>
+              <td class="agenda-events">
+                <div class="agenda-event">
+                  <%= event.event %>
+                </div>
+              </td>
+              <td class="agenda-cost">
+                <div class="agenda-cost">
+                  <%= event.cost %>
+                </div>
+              </td>
+              <td class="agenda-delete">
+                <div class="agenda-delete">
+                  <%= form_tag(:action => 'delete_event') do %>
+                    <button type="submit" value="<%= event.id%>" name="id" class="btn btn-default">Slett event</button>
+                  <% end %>
+                </div>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

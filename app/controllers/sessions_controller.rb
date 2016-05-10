@@ -18,6 +18,10 @@ class SessionsController < ApplicationController
     render 'review'
   end
 
+  def calender
+    render 'calender'
+  end
+
   def shop
     render 'shop'
   end

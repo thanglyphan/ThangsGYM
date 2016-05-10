@@ -41,6 +41,9 @@ group :development do
   gem 'web-console', '~> 2.0'
 end
 
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
+
 gem 'instagram'
 gem 'rails_12factor', group: :production
 gem 'nokogiri', '~> 1.6.8.rc2'

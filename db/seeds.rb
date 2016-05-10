@@ -14,9 +14,14 @@
 #Coach.create!(name: 'Zyzz Brah', limit: 30)
 
 
-Item.create!(program: 'Strength', price: 10, picture: 'http://hillelnorry.com/wp-content/uploads/2015/09/dumbbell-strength.jpg')
-Item.create!(program: 'Condition', price: 5, picture: 'http://bodysculptor.in/wp-content/uploads/2015/12/fasted-cardio.jpg')
-Item.create!(program: 'Weightloss', price: 20, picture: 'http://www.tanazkahenmd.com/wp-content/uploads/2013/06/weight-loss.jpg')
+#Item.create!(program: 'Strength', price: 10, picture: 'http://hillelnorry.com/wp-content/uploads/2015/09/dumbbell-strength.jpg')
+#Item.create!(program: 'Condition', price: 5, picture: 'http://bodysculptor.in/wp-content/uploads/2015/12/fasted-cardio.jpg')
+#Item.create!(program: 'Weightloss', price: 20, picture: 'http://www.tanazkahenmd.com/wp-content/uploads/2013/06/weight-loss.jpg')
+
+Calender.create!(date: '11 Juli 2016', event: 'Loke rundt 1', cost: '100 kr', time: '1 AM -> 10 PM')
+Calender.create!(date: '12 Juli 2016', event: 'Loke rundt 2', cost: '100 kr', time: '1 AM -> 11 PM')
+Calender.create!(date: '13 Juli 2016', event: 'Loke rundt 3', cost: '100 kr', time: '1 AM -> 12 PM')
+
 
 #a = User.find_by(:email => 'lyern52@gmail.com')
 #a.admin = true

@@ -75,13 +75,15 @@
     </div><!-- /.container-fluid -->
   </nav>
   <%= include_gon %>
-  <%= stylesheet_link_tag "bootstrap.css" %>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'braintree', 'data-turbolinks-track' => true %>
+
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-<%= javascript_include_tag 'braintree', 'data-turbolinks-track' => true %>
+
 
 <%= yield %>
 
@@ -95,6 +97,7 @@
           <li><a <%=link_to "Admin", adminpage_path %></li>
           <li><a <%=link_to "Kontakt meg", contact_path %></li>
           <li><a <%=link_to "Legg igjen en tilbakemelding", review_path %></li>
+          <li><a <%=link_to "Kyoto kalenderen", calender_path %></li>
         </ul>
       </div>
     </div>

@@ -46,6 +46,9 @@ Rails.application.routes.draw do
   post 'pick_day',            :to => 'training#pick_day'
   get 'contact',              :to => 'sessions#contact'
   get 'review',               :to => 'sessions#review'
+  get 'calender',             :to => 'sessions#calender'
+  post 'add_event_to_calendar', :to => 'sessions#add_event_to_calendar'
+  post 'delete_event',        :to => 'sessions#delete_event'
   post 'delete_faceuid',      :to => 'sessions#delete_faceuid'
   get 'auth/:provider/callback', to: 'facebookusers#create'
   get 'auth/failure', to: redirect('/')

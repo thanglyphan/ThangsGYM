@@ -40,6 +40,8 @@ GEM
     bcrypt (3.1.11-x64-mingw32)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap3-datetimepicker-rails (4.17.37)
+      momentjs-rails (>= 2.8.1)
     braintree (2.33.1)
       builder (>= 2.0.0)
     builder (3.2.2)
@@ -92,6 +94,8 @@ GEM
     mime-types (2.99.1)
     mini_portile2 (2.1.0)
     minitest (5.8.4)
+    momentjs-rails (2.11.1)
+      railties (>= 3.1)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -196,6 +200,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
+  bootstrap3-datetimepicker-rails
   braintree (~> 2.33.1)
   byebug
   cancancan
@@ -206,6 +211,7 @@ DEPENDENCIES
   instagram
   jbuilder (~> 2.0)
   jquery-rails
+  momentjs-rails
   mysql2 (>= 0.3.13, < 0.5)
   nokogiri (~> 1.6.8.rc2)
   omniauth-facebook (~> 1.4.1)
@@ -221,4 +227,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.11.2
+   1.12.3
