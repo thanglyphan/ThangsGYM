@@ -75,6 +75,12 @@ module SessionsHelper
     redirect_to(:back)
   end
 
+  def update_event
+    @event = Calender.find_by(:id => params[:eventid])
+
+    Calender.update_event(@event, params[:date], params[:event], params[:cost], params[:time], params[:comment])
+    redirect_to(:back)
+  end
   def delete_event
     @event = Calender.find_by(:id => params[:id])
     Calender.delete_event(@event)

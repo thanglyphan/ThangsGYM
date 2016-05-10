@@ -21,7 +21,6 @@
       });
     </script>
   </div>
-  <%= flash[:notice] %>
 </div>
 
 <div class="container">
@@ -75,8 +74,8 @@
                   <%= form_tag(:action => 'delete_event') do %>
                       <button type="submit" value="<%= event.id%>" name="id" class="btn btn-default">Slett event</button>
                       <button type="button" class="open-showCommentModal btn btn-default" data-toggle="modal" data-id="<%= event.comment %>" data-target="#showCommentModal">Se kommentar </button>
-                      <button type="button" class="open-showCommentModal btn btn-default" data-toggle="modal" data-id="<%= event.id %>" data-target="#editEventModal">Endre event </button>
-                <% end %>
+                      <button type="button" class="open-editEventModal btn btn-default" data-toggle="modal" data-date="<%= event.date %>" data-event="<%= event.event %>" data-cost="<%= event.cost %>" data-comment="<%= event.comment %>" data-time="<%= event.time %>" data-eventid="<%= event.id %>" data-target="#editEventModal">Endre event </button>
+                  <% end %>
                 </div>
               </td>
             </tr>
@@ -126,11 +125,49 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h2 class="modal-title">
-          <p>Oppdater eventen</p>
+          <h4>Oppdater kun det som er nødvendig, la resten stå, save</h4>
         </h2>
       </div>
       <div class="modal-body">
-        <p>Kommer snart..</p>
+        <%= form_tag(:action => 'update_event') do %>
+            <strong><p>Event ID:</p></strong>
+            <input type='text' class="form-control" name="eventid" id="eventid" value="" readonly/>
+            <strong><p>Dato:</p></strong>
+            <input type='text' class="form-control" name="date" id="date" value=""/>
+            <strong><p>Event:</p></strong>
+            <input type="text" class="form-control" name="event" id="event" value=""/>
+            <strong><p>Kostnad:</p></strong>
+            <input type="text" class="form-control" name="cost" id="cost" value=""/>
+            <strong><p>Klokkeslett:</p></strong>
+            <input type="text" class="form-control" name="time" id="time" value=""/>
+            <strong><p>Kommentar:</p></strong>
+            <input type="text" class="form-control" name="comment" id="comment" value=""/>
+
+            <button type="submit" class="btn btn-default">Oppdater!</button>
+        <% end %>
+
+
+        <script>
+          $(document).on("click", ".open-editEventModal", function () {
+            var eventid = $(this).data('eventid');
+            $(".modal-body #eventid").val( eventid );
+
+            var date = $(this).data('date');
+            $(".modal-body #date").val( date );
+
+            var event = $(this).data('event');
+            $(".modal-body #event").val( event );
+
+            var cost = $(this).data('cost');
+            $(".modal-body #cost").val( cost );
+
+            var time = $(this).data('time');
+            $(".modal-body #time").val( time );
+
+            var comment = $(this).data('comment');
+            $(".modal-body #comment").val( comment );
+          });
+        </script>
 
 
       </div>
