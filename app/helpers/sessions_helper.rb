@@ -71,7 +71,7 @@ module SessionsHelper
     array = params[:datetext].split(' ')
     array2 = array[0].split('/')
     datetext = array2[1] + " " + check_month(array2[0]) + " " + array2[2]
-    Calender.add_event(datetext, params[:eventtext], params[:pricetext], array[1] + " " + array[2])
+    Calender.add_event(datetext, params[:eventtext], params[:pricetext], array[1] + " " + array[2], params[:commenttext])
     redirect_to(:back)
   end
 
