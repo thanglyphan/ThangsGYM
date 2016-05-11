@@ -78,6 +78,7 @@
   <%= stylesheet_link_tag "bootstrap.css" %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 
@@ -90,7 +91,6 @@
 
 <footer>
   <div class="navbar navbar-inverse navbar-fixed-bottom">
-    <div class="container">
       <div class="navbar-collapse collapse" id="footer-body">
         <ul class="nav navbar-nav">
           <li><a <%=link_to "Admin", adminpage_path %></li>
@@ -99,7 +99,6 @@
           <li><a <%=link_to "Kyoto kalenderen", calender_path %></li>
         </ul>
       </div>
-    </div>
   </div>
 </footer>
 </html>
