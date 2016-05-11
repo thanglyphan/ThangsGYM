@@ -51,6 +51,7 @@ Rails.application.routes.draw do
   post 'delete_event',        :to => 'sessions#delete_event'
   post 'update_event',        :to => 'sessions#update_event'
   post 'delete_faceuid',      :to => 'sessions#delete_faceuid'
+  post 'update_calendar_pub_priv', :to => 'sessions#update_calendar_pub_priv'
   get 'auth/:provider/callback', to: 'facebookusers#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'facebookusers#destroy', as: 'signout'

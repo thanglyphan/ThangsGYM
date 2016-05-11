@@ -68,10 +68,20 @@ module SessionsHelper
   #PICTURE UPLOAD
 
   def add_event_to_calendar
+    userid = @current_user.id
     array = params[:datetext].split(' ')
     array2 = array[0].split('/')
     datetext = array2[1] + " " + check_month(array2[0]) + " " + array2[2]
-    Calender.add_event(datetext, params[:eventtext], params[:pricetext], array[1] + " " + array[2], params[:commenttext])
+    Calender.add_event(datetext, params[:eventtext], params[:pricetext], array[1] + " " + array[2], params[:commenttext], userid)
+    redirect_to(:back)
+  end
+
+  def update_calendar_pub_priv
+    if params[:btncheck] == "private" && @current_user.present?
+      session[:showprivate] = true
+    else
+      session[:showprivate] = false
+    end
     redirect_to(:back)
   end
 

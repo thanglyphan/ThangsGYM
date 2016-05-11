@@ -8,6 +8,8 @@ class SessionsController < ApplicationController
 
   def get_user
     @current_user = User.find_by(:auth_token => cookies[:auth_token])#User.find session[:user_id]
+    @admin = User.find_by(:admin => 1)
+
   end
 
   def contact

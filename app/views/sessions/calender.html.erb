@@ -1,3 +1,4 @@
+<% #if @current_user.present? %>
 <div class="container">
   <div class="row">
     <%= form_tag(:action => 'add_event_to_calendar') do %>
@@ -22,6 +23,7 @@
     </script>
   </div>
 </div>
+    <% #end %>
 
 <div class="container">
   <h2>Kyoto</h2>
@@ -49,36 +51,78 @@
         </tr>
         </thead>
         <tbody>
-
-        <% for event in @all_events do %>
-            <tr>
-              <td class="agenda-date" class="active" rowspan="1">
-                <div class="shortdate text-muted"><%= event.date %></div>
-              </td>
-              <td class="agenda-time">
-                <%= event.time %>
-              </td>
-              <td class="agenda-events">
-                <div class="agenda-event">
-                  <%= event.event %>
-                </div>
-              </td>
-              <td class="agenda-cost">
-                <div class="agenda-cost">
-                  <%= event.cost %>
-                </div>
-              </td>
-
-              <td class="agenda-delete">
-                <div class="agenda-delete">
-                  <%= form_tag(:action => 'delete_event') do %>
-                      <button type="submit" value="<%= event.id%>" name="id" class="btn btn-default">Slett event</button>
-                      <button type="button" class="open-showCommentModal btn btn-default" data-toggle="modal" data-id="<%= event.comment %>" data-target="#showCommentModal">Se kommentar </button>
-                      <button type="button" class="open-editEventModal btn btn-default" data-toggle="modal" data-date="<%= event.date %>" data-event="<%= event.event %>" data-cost="<%= event.cost %>" data-comment="<%= event.comment %>" data-time="<%= event.time %>" data-eventid="<%= event.id %>" data-target="#editEventModal">Endre event </button>
-                  <% end %>
-                </div>
-              </td>
-            </tr>
+        <div class='col-sm-20'>
+          <%= form_tag(:action => 'update_calendar_pub_priv') do %>
+              <button type="submit" value="public" name="btn" id= "btn" class="btn btn-primary">Public</button>
+              <button type="submit" value="private" name="btncheck" id= "btncheck" class="btn btn-primary">Privat</button>
+          <% end %>
+        </div>
+        <% if session[:showprivate] == true %>
+            <% for event in @all_events do %>
+                <% if @current_user.nil? || event.user_id == @current_user.id.to_s %>
+                    <tr>
+                      <td class="agenda-date" class="active" rowspan="1">
+                        <div class="shortdate text-muted"><%= event.date %></div>
+                      </td>
+                      <td class="agenda-time">
+                        <%= event.time %>
+                      </td>
+                      <td class="agenda-events">
+                        <div class="agenda-event">
+                          <%= event.event %>
+                        </div>
+                      </td>
+                      <td class="agenda-cost">
+                        <div class="agenda-cost">
+                          <%= event.cost %>
+                        </div>
+                      </td>
+                      <td class="agenda-delete">
+                        <div class="agenda-delete">
+                          <%= form_tag(:action => 'delete_event') do %>
+                              <button type="submit" value="<%= event.id%>" name="id" class="btn btn-default">Slett event</button>
+                              <button type="button" class="open-showCommentModal btn btn-default" data-toggle="modal" data-id="<%= event.comment %>" data-target="#showCommentModal">Se kommentar </button>
+                              <button type="button" class="open-editEventModal btn btn-default" data-toggle="modal" data-date="<%= event.date %>" data-event="<%= event.event %>" data-cost="<%= event.cost %>" data-comment="<%= event.comment %>" data-time="<%= event.time %>" data-eventid="<%= event.id %>" data-target="#editEventModal">Endre event </button>
+                          <% end %>
+                        </div>
+                      </td>
+                    </tr>
+                <% end %>
+            <% end %>
+        <% else %>
+            <% for event in @all_events do %>
+                <% #if event.user_id.nil? || event.user_id == @admin.id.to_s FJERN DENNE KOMMENTAREN%>
+                    <tr>
+                      <td class="agenda-date" class="active" rowspan="1">
+                        <div class="shortdate text-muted"><%= event.date %></div>
+                      </td>
+                      <td class="agenda-time">
+                        <%= event.time %>
+                      </td>
+                      <td class="agenda-events">
+                        <div class="agenda-event">
+                          <%= event.event %>
+                        </div>
+                      </td>
+                      <td class="agenda-cost">
+                        <div class="agenda-cost">
+                          <%= event.cost %>
+                        </div>
+                      </td>
+                      <td class="agenda-delete">
+                        <div class="agenda-delete">
+                          <%= form_tag(:action => 'delete_event') do %>
+                              <% #if @current_user.present? && @current_user.admin? %>
+                                  <button type="submit" value="<%= event.id%>" name="id" class="btn btn-default">Slett event</button>
+                                  <button type="button" class="open-editEventModal btn btn-default" data-toggle="modal" data-date="<%= event.date %>" data-event="<%= event.event %>" data-cost="<%= event.cost %>" data-comment="<%= event.comment %>" data-time="<%= event.time %>" data-eventid="<%= event.id %>" data-target="#editEventModal">Endre event </button>
+                              <% #end %>
+                              <button type="button" class="open-showCommentModal btn btn-default" data-toggle="modal" data-id="<%= event.comment %>" data-target="#showCommentModal">Se kommentar </button>
+                          <% end %>
+                        </div>
+                      </td>
+                    </tr>
+                <% end %>
+            <% #end FJERN DENNE KOMMENTAREN%>
         <% end %>
         </tbody>
       </table>
@@ -177,4 +221,3 @@
     </div>
   </div>
 </div>
-
