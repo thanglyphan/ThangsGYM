@@ -1,11 +1,24 @@
 <div class="jumbotron">
   <div class="container">
     <div class="form-container radius-box glassy-bg small-10 small-centered medium-8 large-6 columns">
-      <h2 class="mbs">Checkout</h2>
+      <h2 class="mbs">Checkout. Du har valgt:</h2>
 
-      <p><strong><%=@current_user.item.program %> for <%=@current_user.gender %>s - <%=@current_user.item.price%>$ </strong></p>
-      <p><strong>-------</strong></p>
-      <p><strong>Totalt: <%=@current_user.item.price%>$</strong></p>
+      <% for item in @cart do %>
+          <% if item.cart_user == @current_user.id.to_s %>
+              <% total = item.price.to_i + total.to_i %>
+                <li class="list-group-item list-group-item-info"><%= item.item %> for <%= item.price %> kr</li>
+          <% end %>
+      <% end %>
+      <p></p>
+
+      <% if session[:couch?] %>
+          <li class="list-group-item list-group-item-info"><strong>Coach </strong><%= @current_user.coach.name %> for 500 kr</li>
+          <p></p>
+          <p><strong>Totalt: <%= total + 500 %> kr</strong></p>
+          <% else %>
+          <p><strong>Totalt: <%= total %> kr</strong></p>
+
+    <% end %>
 
       <p>Vennligst legg til din betalings informasjon:</p>
       <%= form_tag transactions_path do%>

@@ -7,9 +7,16 @@ class ApplicationController < ActionController::Base
   before_action :all_users
 
   def all_users
+    @cart = Cart.all
     @all_users = User.all
     @all_reviews = Review.all
     @all_events = Calender.all.order(:date)
+    @coaches_stats = Coach.all
+    @coaches = Coach.all.map{|c| [c.name]}
+    @items = Item.all
+
+
+
     #@my_photos = ::Instagram.media_popular
     @my_photos = ::Instagram.user_recent_media(934284484, {:count => 100})
   end
@@ -22,15 +29,14 @@ class ApplicationController < ActionController::Base
   def authenticate_user
     if cookies[:auth_token] #session[:user_id]
       # set current user object to @current_user object variable
-      @items = Item.all.map{|i| [ i.program]} #Add all items to this variable at start when rendering logging in.
-      @coaches = Coach.all.map{|c| [c.name]}
+      #@coaches = Coach.all.map{|c| [c.name]}
       #@current_user = User.find session[:user_id]
       @current_user = User.find_by(:auth_token => cookies[:auth_token]) if cookies[:auth_token]
       @is_coaching = User.all #@current_user.coach
       @all_users = User.all
       @list_of_bookings = AllMyBooking.all
       @group_training = GroupExercise.all
-      @coaches_stats = Coach.all
+      #@coaches_stats = Coach.all
       #@cname = @current_user.coach
       if @current_user.admin?
         return 'admin'

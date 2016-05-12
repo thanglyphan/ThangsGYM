@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510181829) do
+ActiveRecord::Schema.define(version: 20160512152129) do
 
   create_table "all_my_bookings", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20160510181829) do
     t.string   "time",       limit: 255
     t.text     "comment",    limit: 65535
     t.string   "user_id",    limit: 255
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.string   "item",       limit: 255
+    t.string   "price",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "cart_user",  limit: 255
   end
 
   create_table "coaches", force: :cascade do |t|

@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   include SessionsHelper
-  before_filter :authenticate_user, :only => [:home, :shop,:profile, :setting, :payment, :admin, :training], :except => [:add_comment]
+  before_filter :authenticate_user, :only => [:home, :shop,:profile, :setting, :cart, :payment, :admin, :training], :except => [:add_comment]
   before_filter :save_login_state, :only => [:login, :login_attempt], :except => [:add_comment]
   before_action :load_user_and_subs, :only =>[:home, :profile, :setting, :payment, :admin, :training]
   attr_accessor :items
@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
   def get_user
     @current_user = User.find_by(:auth_token => cookies[:auth_token])#User.find session[:user_id]
     @admin = User.find_by(:admin => 1)
-
   end
 
   def contact
@@ -28,6 +27,9 @@ class SessionsController < ApplicationController
     render 'shop'
   end
 
+  def cart
+    render 'cart'
+  end
 
   def delete_comment
     @comment = Review.find_by(:id => params[:id])
@@ -112,28 +114,14 @@ class SessionsController < ApplicationController
     end
   end
 
-  def choose_program
-    @current_user = User.find_by(:auth_token => cookies[:auth_token])
-    @current_item = Item.find_by(:program => params[:program])
-    if add_gender!
-      if @current_item.blank?
-        flash[:notice] = "Du må velge ett program!"
-        redirect_to shop_path #(:action => 'home')
-      else
-        if check_coach_valid #Check if user have selected coaching
-          session[:couch?] = true #Set to true so user sees all coaches in payment view.
-          flash[:notice] = "Coach er valgt"
-          User.add_program(params[:program], @current_user)
-          redirect_to payment_path #(:action => 'payment')
-        else
-          User.add_program(params[:program], @current_user)
-          redirect_to payment_path
-        end
-      end
+
+  def go_checkout
+    if session[:checkcoach] == 'true'
+      redirect_to new_transaction_path
     else
-      flash[:notice] = "You have to choose gender before program! Don't leave it blank."
-      redirect_to home_path
+      redirect_to(:back)
     end
+    session[:checkcoach] = 'false'
   end
 
   def check_coach_valid
@@ -143,32 +131,16 @@ class SessionsController < ApplicationController
 
   def select_coach
     @current_user = User.find_by(:auth_token => cookies[:auth_token])
-=begin #DELETE ALL CLIENTS TO COACHES AND ALL COACH_ID FROM USERS!
-    for item in Coach.all do
-      item.clients = 0
-      item.save
-    end
+    session[:checkcoach] = 'true'
+    a = Coach.find_by(:name => params[:coach]) #Selected coach
+    b = Coach.find_by(:id => @current_user.coach_id) #Old coach
 
-    for it in User.all do
-      it.coach_id = nil
-      it.save
-    end
-=end
-    if params[:coach].blank?
-      flash[:notice] = "You have to chose a coach"
-      redirect_to(:back)#redirect_to payment_path
-    elsif @current_user.change_limit == 0
-      flash[:notice] = "You have no more changes, contact lyern52@gmail.com if urgent!"
-      redirect_to(:back)#redirect_to payment_path
-    else
-      a = Coach.find_by(:name => params[:coach]) #Selected coach
-      b = Coach.find_by(:id => @current_user.coach_id) #Old coach
-
+    if a != b
       change_coach_helper(a,b,@current_user) #Calling helper method.
-
-      flash[:notice] = "You have chosen the coach: #{a.name}. You will be charged 20$"
-      redirect_to(:back)#redirect_to payment_path
     end
+    flash[:notice] = "You have chosen the coach: #{a.name}. You will be charged 20$"
+    redirect_to(:back)#redirect_to payment_path
+
   end
 
   def reset_pw

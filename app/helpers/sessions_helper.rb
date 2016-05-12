@@ -10,6 +10,24 @@ module SessionsHelper
     User.add_coach(a, user) #TODO: SOMETHING WRONG?
   end
 
+  #ADD TO CART
+  def add_to_cart
+    if check_coach_valid #Check if user have selected coaching
+      session[:couch?] = true #Set to true so user sees all coaches in payment view.
+    end
+
+    item = Item.find_by(:id => params[:id])
+    Cart.add_item(item, @current_user)
+    redirect_to cart_path
+  end
+
+  def delete_item_from_cart
+    a = Cart.find_by(:id => params[:id])
+    Cart.delete_this_item(a)
+    redirect_to(:back)
+  end
+
+
   #SUBSCRIPTIONS POST METHODS
   def add_subscription
     Subscription.add_email_to_subs(@current_user.email)

@@ -1,38 +1,41 @@
+<div class="container">
 
-<div class="jumbotron">
-  <div class="container">
-    <%=flash[:alert]%>
+  <!-- Jumbotron Header -->
+  <header class="jumbotron hero-spacer">
+    <h1>Treningsprogrammer</h1>
+    <p>Jeg har salg!</p>
+    </p>
+  </header>
 
-    <%= form_tag(:action => 'choose_program') do %>
-        <% if @current_user.gender == "male" %>
-            <%= radio_button_tag(:gender, "male", true) %>
-            <%= label_tag(:gender, "Male") %>
-            <%= radio_button_tag(:gender, "female") %>
-            <%= label_tag(:gender, "Female") %>
-        <% elsif @current_user.gender == "female"%>
-            <%= radio_button_tag(:gender, "male") %>
-            <%= label_tag(:gender, "Male") %>
-            <%= radio_button_tag(:gender, "female", true) %>
-            <%= label_tag(:gender, "Female") %>
-        <% else %>
-            <%= radio_button_tag(:gender, "male") %>
-            <%= label_tag(:gender, "Male") %>
-            <%= radio_button_tag(:gender, "female") %>
-            <%= label_tag(:gender, "Female") %>
-        <% end %>
-        <p></p>
+  <hr>
 
-        <%= select_tag(:program, options_for_select(@items), {include_blank: 'PROGRAMMER'})%>
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>Mine produkter</h3>
+    </div>
+  </div>
 
-        <%= label_tag :need_coach? %>
-        <%= check_box_tag :need_coach?, 1, params[:need_coach?] %>
+  <div class="row text-center">
+    <% for item in @items do %>
+        <div class="col-md-3 col-sm-6 hero-feature">
+          <div class="thumbnail">
+            <img src="<%= item.picture %>" width="400" height="200" style="width:400px; height:200px">
+            <div class="caption">
+              <h3><%= item.program %></h3>
+              <p><%= item.price %> kr</p>
+              <p>
+                <%= form_tag(:action => 'add_to_cart') do %>
 
-        <%= submit_tag("Velg") %>
+                    <%= label_tag :need_coach? %>
+                    <%= check_box_tag :need_coach?, 1, params[:need_coach?] %>
+
+                  <td><button type="submit" value="<%= item.id%>" name="id" class="btn btn-primary">Legg til i handlekurv</button></td>
+              <% end %>
+              </p>
+            </div>
+          </div>
+        </div>
     <% end %>
-    <p>Dersom coach er valgt, vil du bli presentert av alle mulige coacher ved checkout.</p>
-
-
-    <p><%= flash[:notice] %></p>
   </div>
 </div>
 

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get 'setting',              :to => 'sessions#setting'
   get 'payment',              :to => 'sessions#payment'
   post 'add_gender',          :to => 'sessions#add_gender'
-  post 'choose_program',      :to => 'sessions#choose_program'
+  post 'go_checkout',         :to => 'sessions#go_checkout'
   post 'add_subscription',    :to => 'sessions#add_subscription'
   post 'remove_subscription', :to => 'sessions#remove_subscription'
   post 'profile_pic_upload',  :to => 'sessions#profile_pic_upload'
@@ -52,6 +52,9 @@ Rails.application.routes.draw do
   post 'update_event',        :to => 'sessions#update_event'
   post 'delete_faceuid',      :to => 'sessions#delete_faceuid'
   post 'update_calendar_pub_priv', :to => 'sessions#update_calendar_pub_priv'
+  post 'add_to_cart',         :to => 'sessions#add_to_cart'
+  get 'cart',                 :to => 'sessions#cart'
+  post 'delete_item_from_cart', :to => 'sessions#delete_item_from_cart'
   get 'auth/:provider/callback', to: 'facebookusers#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'facebookusers#destroy', as: 'signout'
