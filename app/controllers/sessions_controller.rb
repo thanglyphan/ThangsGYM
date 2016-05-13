@@ -116,12 +116,14 @@ class SessionsController < ApplicationController
 
 
   def go_checkout
-    if session[:checkcoach] == 'true'
+    if session[:checkcoach] == true && session[:couch?] == true
+      redirect_to new_transaction_path
+    elsif session[:couch?] == false
       redirect_to new_transaction_path
     else
       redirect_to(:back)
     end
-    session[:checkcoach] = 'false'
+    session[:checkcoach] = false
   end
 
   def check_coach_valid
@@ -131,7 +133,7 @@ class SessionsController < ApplicationController
 
   def select_coach
     @current_user = User.find_by(:auth_token => cookies[:auth_token])
-    session[:checkcoach] = 'true'
+    session[:checkcoach] = true
     a = Coach.find_by(:name => params[:coach]) #Selected coach
     b = Coach.find_by(:id => @current_user.coach_id) #Old coach
 
