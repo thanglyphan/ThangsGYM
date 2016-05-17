@@ -1,1 +1,1 @@
-- Knytte facebook kontoen til vanlig konto i databasen.
+https://gist.github.com/fnichol/867550 MUST
