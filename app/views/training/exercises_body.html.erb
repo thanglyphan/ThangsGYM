@@ -14,7 +14,6 @@
           <div class="column">
             <div class="col-sm-3">
               <div class="btn-group btn-group-sm" role="group">
-
                 <button type="button"  class="open-showInfoModal btn btn-default" data-toggle="modal"  data-target="#showInfoModal"
                         data-id="<%= a.flatten(1).first %>"
                         data-mainmuscleworked="Hoved muskel: <%= a[a.flatten(1).first]['Main Muscle Worked'] %>"
@@ -26,7 +25,8 @@
                         data-sport="Sport: <%= a[a.flatten(1).first]['Sport'] %>"
                         data-type="Type: <%= a[a.flatten(1).first]['Type'] %>"
                         data-guide="Hvordan utføre: <%= a[a.flatten(1).first]['guide'].map(&:inspect).to_sentence.gsub(/[^0-9A-Za-z.]/, ' ') %>"
-                        data-picture="<%= a[a.flatten(1).first]['pic_left'] %>">
+                        data-picture="<%= a[a.flatten(1).first]['pic_left'] %>"
+                        data-source="Kilde: <%= a[a.flatten(1).first]['link'] %>">
                   <%= a.flatten(1).first %>
                 </button>
               </div>
@@ -62,6 +62,8 @@
         <img id="Picture" src="" width="500" height="300">
         <p></p>
         <p id="Guide"></p>
+        <a id="Link"></a>
+
 
         <script>
           $(document).on("click", ".open-showInfoModal", function () {
@@ -99,6 +101,9 @@
             var guide = $(this).data('guide')
             var guideEl = document.getElementById("Guide");
 
+            var link = $(this).data('source')
+            var linkEl = document.getElementById("Link");
+
             el.innerHTML = myTitle;
             mainMuscleWorkedEl.innerHTML = mainMuscleWorked;
             otherMusclesEl.innerHTML = otherMuscles;
@@ -110,6 +115,7 @@
             typeEl.innerHTML = type;
             pictureEl.innerHTML = picture;
             guideEl.innerHTML = guide;
+            linkEl.innerHTML = link;
           });
         </script>
 
