@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   get 'my_booking',           :to => 'training#my_booking'
   post 'remove_booking',      :to => 'training#remove_booking'
   post 'pick_day',            :to => 'training#pick_day'
+  post 'pick_musclegroup',    :to => 'training#pick_musclegroup'
   get 'contact',              :to => 'sessions#contact'
   get 'review',               :to => 'sessions#review'
   get 'calender',             :to => 'sessions#calender'

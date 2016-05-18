@@ -2,7 +2,7 @@ class TrainingController < ApplicationController
   include TrainingHelper
   before_filter :authenticate_user, :only => [:group_training, :bmi_calc, :exercises_body, :my_booking]
   before_filter :save_login_state, :only => [:login, :login_attempt]
-
+  require 'json'
 
 
   def group_training
@@ -33,7 +33,18 @@ class TrainingController < ApplicationController
   end
 
   def exercises_body
+    file = File.read('public/json/Workout.json')
+    @hash = JSON.parse(file)
+    @list_of_musclegroups = []
+    for a in @hash do
+      @list_of_musclegroups << (a[a.flatten(1).first]['Main Muscle Worked'])
+    end
+    @uniq_muscle = @list_of_musclegroups.uniq
     render 'exercises_body'
+  end
+  def pick_musclegroup
+    cookies[:chosen_muscle] = params[:musclegroup]
+    redirect_to(:back)
   end
 
   def my_booking
