@@ -43,7 +43,7 @@ end
 
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
-
+gem 'json'
 gem 'instagram'
 gem 'rails_12factor', group: :production
 gem 'nokogiri', '~> 1.6.8.rc2'

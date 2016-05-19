@@ -1,1 +1,129 @@
-<p>EXERCISES</p>
+<% for a in @uniq_muscle do %>
+    <div class="btn-group btn-group-sm" role="group">
+      <div class="text-center">
+        <%= form_tag(:action => 'pick_musclegroup') do %>
+            <button type="submit" name="musclegroup" value="<%= a %>" class="btn btn-primary"><%= a %></button>
+        <% end %>
+      </div>
+    </div>
+<% end %>
+
+<div class="container">
+  <% for a in @hash do %>
+      <% if a[a.flatten(1).first]['Main Muscle Worked'] == cookies[:chosen_muscle]%>
+          <div class="column">
+            <div class="col-sm-3">
+              <div class="btn-group btn-group-sm" role="group">
+                <button type="button"  class="open-showInfoModal btn btn-default" data-toggle="modal"  data-target="#showInfoModal"
+                        data-id="<%= a.flatten(1).first %>"
+                        data-mainmuscleworked="Hoved muskel: <%= a[a.flatten(1).first]['Main Muscle Worked'] %>"
+                        data-othermuscles="Andre muskler: <%= a[a.flatten(1).first]['Other Muscles'] %>"
+                        data-force="Force: <%= a[a.flatten(1).first]['Force'] %>"
+                        data-level="Nivå: <%= a[a.flatten(1).first]['Level'] %>"
+                        data-mechanicstype="Mekanisk type: <%= a[a.flatten(1).first]['Mechanics Type'] %>"
+                        data-equipment="Verktøy: <%= a[a.flatten(1).first]['Equipment'] %>"
+                        data-sport="Sport: <%= a[a.flatten(1).first]['Sport'] %>"
+                        data-type="Type: <%= a[a.flatten(1).first]['Type'] %>"
+                        data-guide="Hvordan utføre: <%= a[a.flatten(1).first]['guide'].map(&:inspect).to_sentence.gsub(/[^0-9A-Za-z.]/, ' ') %>"
+                        data-picture="<%= a[a.flatten(1).first]['pic_left'] %>"
+                        data-source="Kilde: <%= a[a.flatten(1).first]['link'] %>">
+                  <%= a.flatten(1).first %>
+                </button>
+              </div>
+            </div>
+          </div>
+      <% end %>
+  <% end %>
+</div>
+
+<div class="modal fade" id="showInfoModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h2 class="modal-title">
+
+          <p id="title"></p>
+
+        </h2>
+      </div>
+      <div class="modal-body">
+
+        <p id="MainMuscleWorked"></p>
+        <p id="OtherMuscles"></p>
+        <p id="Force"></p>
+        <p id="Level"></p>
+        <p id="MechanicsType"></p>
+        <p id="Equipment"></p>
+        <p id="Sport"></p>
+        <p id="Type"></p>
+        <img id="Picture" src="" width="500" height="300">
+        <p></p>
+        <p id="Guide"></p>
+        <a id="Link"></a>
+
+
+        <script>
+          $(document).on("click", ".open-showInfoModal", function () {
+
+            var myTitle = $(this).data('id')
+            var el = document.getElementById("title");
+
+            var mainMuscleWorked = $(this).data('mainmuscleworked')
+            var mainMuscleWorkedEl = document.getElementById("MainMuscleWorked");
+
+            var otherMuscles = $(this).data('othermuscles')
+            var otherMusclesEl = document.getElementById("OtherMuscles");
+
+            var force = $(this).data('force')
+            var forceEl = document.getElementById("Force");
+
+            var level = $(this).data('level')
+            var levelEl = document.getElementById("Level");
+
+            var mechanicsType = $(this).data('mechanicstype')
+            var mechanicsTypeEl = document.getElementById("MechanicsType");
+
+            var equipment = $(this).data('equipment')
+            var equipmentEl = document.getElementById("Equipment");
+
+            var sport = $(this).data('sport')
+            var sportEl = document.getElementById("Sport");
+
+            var type = $(this).data('type')
+            var typeEl = document.getElementById("Type");
+
+            var picture = $(this).data('picture')
+            var pictureEl = document.getElementById("Picture").src = picture;
+
+            var guide = $(this).data('guide')
+            var guideEl = document.getElementById("Guide");
+
+            var link = $(this).data('source')
+            var linkEl = document.getElementById("Link");
+
+            el.innerHTML = myTitle;
+            mainMuscleWorkedEl.innerHTML = mainMuscleWorked;
+            otherMusclesEl.innerHTML = otherMuscles;
+            forceEl.innerHTML = force;
+            levelEl.innerHTML = level;
+            mechanicsTypeEl.innerHTML = mechanicsType;
+            equipmentEl.innerHTML = equipment;
+            sportEl.innerHTML = sport;
+            typeEl.innerHTML = type;
+            pictureEl.innerHTML = picture;
+            guideEl.innerHTML = guide;
+            linkEl.innerHTML = link;
+          });
+        </script>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
