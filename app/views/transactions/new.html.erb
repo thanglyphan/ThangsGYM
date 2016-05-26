@@ -9,6 +9,7 @@
                 <li class="list-group-item list-group-item-info"><%= item.item %> for <%= item.price %> kr</li>
           <% end %>
       <% end %>
+      <% session[:price] = total %>
       <p></p>
 
       <% if session[:couch?] %>
@@ -23,7 +24,7 @@
       <p>Vennligst legg til din betalings informasjon:</p>
       <%= form_tag transactions_path do%>
           <div id="dropin"></div>
-          <%=submit_tag "Betal " + total.to_s + " kr", class: 'button mt1' %>
+          <button type="submit" value="<%= total.to_s %>" name="price" id="price" class="btn btn-primary">Betal <%= total.to_s %> kr</button>
       <%end%>
     </div>
   </div>
