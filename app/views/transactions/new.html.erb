@@ -23,7 +23,7 @@
       <p>Vennligst legg til din betalings informasjon:</p>
       <%= form_tag transactions_path do%>
           <div id="dropin"></div>
-          <%=submit_tag "Pay #{@current_user.item.price}$", class: 'button mt1' %>
+          <%=submit_tag "Betal " + total.to_s + " kr", class: 'button mt1' %>
       <%end%>
     </div>
   </div>
