@@ -2,10 +2,11 @@
 
 <div class="jumbotron">
   <div class="container">
+
     <% if @current_facebookuser.present? %>
-        <h1>Halla, <%= @current_facebookuser.name%>! </h1>
+        <h1>Halla, <%= @current_facebookuser.name%>! <img src="<%= @current_user.profile_pic %>" style="width:100px; height:100px;" > </h1>
     <% else %>
-        <h1>Halla, <%= @current_user.username%>! </h1>
+        <h1>Halla, <%= @current_user.username%>! <img src="<%= @current_user.profile_pic %>" style="width:100px; height:100px;"> </h1>
   <% end %>
     <p> Din email: <%= @current_user.email%> </p>
     <p> Du lagde denne brukeren: <%= @current_user.created_at%> </p>
@@ -14,5 +15,10 @@
     <%= form_tag(:action => 'profile_pic_upload') do %>
         <%= submit_tag("Upload pic from facebook!") %>
     <% end %>
+
+    <li><a <%=link_to "Vis dine bilder", dragonfly_images_path, class: "btn btn-primary" %></a></li>
+
+
   </div>
 </div>
+

@@ -15,13 +15,15 @@
           <li><a <%=link_to "Profil", profile_path %></a></li>
           <li><a <%=link_to "Innstillinger", setting_path %></a></li>
           <li><a <%=link_to "Treningsprogrammer", shop_path %></a></li>
+          <li><a <%=link_to "Bilde dagbok", dragonfly_images_path %></a></li>
+
 
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               Ulike valg<span class="caret"></span></a>
             <ul class="dropdown-menu">
 
-              <li><a href="group_training"> Gruppetimer</a></li>
+              <li><a <%=link_to "Gruppe trening", group_training_path%></a></li>
               <li><a <%=link_to "BMI kalkulator", bmi_calc_path %></a></li>
               <li><a <%=link_to "Øvelser", exercises_body_path %></a></li>
             </ul>
@@ -63,11 +65,11 @@
                       <%= "Hei, #{@current_user.username}!"%><span class="caret"></span></a>
                   <% end %>
                   <ul class="dropdown-menu">
-                    <li><a href="cart">Min handlekurv</a></li>
-                    <li><a href="status">Status</a></li>
-                    <li><a href="my_booking">Mine bookings</a></li>
+                    <li><a <%=link_to "Min handlekurv", cart_path %></a></li>
+                    <li><a <%=link_to "Status", status_path %></a></li>
+                    <li><a <%=link_to "Mine Bookings", my_booking_path %></a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="logout">Logg ut</a></li>
+                    <li><a <%=link_to "Logg ut", logout_path %></a></li>
                   </ul>
           <% end %>
           </li>

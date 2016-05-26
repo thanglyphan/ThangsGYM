@@ -41,6 +41,8 @@ group :development do
   gem 'web-console', '~> 2.0'
 end
 
+gem 'dragonfly', '~> 1.0.12'
+
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
 gem 'json'
