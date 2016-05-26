@@ -115,12 +115,8 @@ class SessionsController < ApplicationController
   end
 
   def send_me_mail
-    flash[:notice] = params[:InputName]
-
     UserMailer.send_thang_email(@current_user, params[:InputName], params[:InputEmail], params[:InputMessage]).deliver_now
-
-
-
+    flash[:notice] = "OK"
     redirect_to(:back)
   end
 
