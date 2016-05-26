@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   root :to => 'sessions#login'
 
+  post 'send_me_mail',        :to => 'sessions#send_me_mail'
   get 'login',                :to => 'sessions#login'
   post 'login_attempt',       :to => 'sessions#login_attempt'
   post 'login_attempt_with_facebook', :to =>'sessions#login_attempt_with_facebook'

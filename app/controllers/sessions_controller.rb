@@ -114,6 +114,16 @@ class SessionsController < ApplicationController
     end
   end
 
+  def send_me_mail
+    flash[:notice] = params[:InputName]
+
+    UserMailer.send_thang_email(@current_user, params[:InputName], params[:InputEmail], params[:InputMessage]).deliver_now
+
+
+
+    redirect_to(:back)
+  end
+
 
   def go_checkout
     if session[:checkcoach] == true && session[:couch?] == true
