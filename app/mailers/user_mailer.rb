@@ -18,8 +18,9 @@ class UserMailer < ApplicationMailer
     mail to: @user.email, subject: "Your password has been reset"
   end
 
-  def deliver_product(current_user, current_item)
+  def deliver_product(current_user, current_item, cart)
     @user = current_user
+    @cart = cart
     @item = current_item
 
     mail to: @user.email, subject: "Here are your delivery!"
