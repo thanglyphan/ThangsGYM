@@ -25,16 +25,50 @@
   <p>Man må være innlogget for å kunne bruke de forskjellige knappene navbaren har,dette er fordi jeg kjører et filter
     som sjekker om man er innlogget eller ikke før alt skjer.</p>
   <h2><strong>Hjem</strong></h2>
+  <p>Under denne funksjonen gjemmer det seg kall til instagram. Etter man er logget inn, kommer man hit. Her ser brukeren 20
+    bilder, der disse bildene er hentet fra instagram kontoen til Thangs GYM. Det er max 20 bilder pga. instagram lar ikke
+    alle få full tilgang til API'et. Jeg får ikke hentet bilder fra noen andre sin konto enn de kontoene som er oppført som
+    "Sandbox"-kontoer, dvs. test kontoer.</p>
   <h2><strong>Profil</strong></h2>
+  <p>Her kan man se når man har lagd brukeren, navnet ditt og profilbilde ditt. Som en default profilbilde, har jeg lagt
+    til en et tomt bilde, dersom man er logget inn som en bruker, og ikke en facebook bruker, kan man endre dette ved å
+    trykke "Hent profilbilde fra facebook", da får man bilde av Zyzz. Dersom du er logget inn med facebook, vil du kunne
+    klare å hente profilbildet ditt fra facebook. Du får også anledning til å klikke deg til dine bilder ved knappen under.</p>
   <h2><strong>Innstillinger</strong></h2>
+  <p>Her kan du endre ditt passord. Du får tilsendt en bekreftelse på mail etter du har endret passordet ditt.</p>
   <h2><strong>Treningsprogrammer</strong></h2>
-  <h2><strong>Bilde dagbok</strong></h2>
-  <h2><strong>Gruppe trening</strong></h2>
-  <h2><strong>BMI kalkulator</strong></h2>
+  <p>Dette er min nettbutikk. Akkurat nå, er det sandbox paypal. Du legger ting inn i handlekurven, velger om du vil ha en
+    coach eller ikke. Du checker ut fra handlekurven.</p>
   <h2><strong>Min handlekurv</strong></h2>
+  <p>Din handlekurv er KUN din. Varer som du har lagt til, vil ikke bli vist noen andre steder enn her, ingen andre
+    brukere har tilgang hit. Varene blir lagt til en database der kun du som bruker eier. Her velger du også hvilken coach
+    du har lyst på. Til høyre for coach navn, finner du antall brukere/medlemmer denne coachen coacher for øyeblikket.
+    Du har opptil 3 ganger du kan endre coach på, hvis dette overstiges, sier du ifra til meg.</p>
+  <h2><strong>Bilde dagbok</strong></h2>
+  <p>Dine personlige bilder ingen andre kan se. Her har jeg brukt dragonfly til opplastning av bilder/filer(i mitt
+    tilfelle er det bilder). Du kan slette, legge til, endre og se på. CRUD.</p>
+  <h2><strong>Gruppe trening</strong></h2>
+  <p>Jeg prøvde å lete etter et API fra SiO athletica, satselixia osv, men ingen hadde. Her har jeg da lagt til manuellt noen
+    gruppetimer i databasen, og hentet ut derfra. Brukeren kan velge å se hvilken dag osv. ved å klikke på de dagene som vises.
+    Klikkes det ikke på noen dag, vil dagen IDAG vises som default. Brukeren kan se på infoen, dersom brukeren liker
+    denne timen, kan bruker booke time her.</p>
+  <h2><strong>Mine bookings</strong></h2>
+  <p>Her kan du sjekke de gamle bookingene du har gjort, og den nyeste bookingen.</p>
   <h2><strong>Status</strong></h2>
+  <p>Her kan du se hvem som er DIN coach, og her kan du endre(opp til tre ganger) coach. En statistikk over coacher
+    vises også dersom du har valgt coaching.</p>
+  <h2><strong>BMI kalkulator</strong></h2>
+  <p>En liten BMI kalkulator, ikke noe spennende her.</p>
   <h2><strong>Kontakt meg</strong></h2>
+  <p>Dersom du vil sende meg en melding, går du hit. Her må du fylle inn navn, epost, tema og melding.
+    Du sender meg melding så enkelt som det, fyll inn, trykk send. Du vil få en kopi av eposten.</p>
   <h2><strong>Legg igjen en tilbakemelding</strong></h2>
+  <p>En gjestebok der alle kan signere.</p>
   <h2><strong>Kalender</strong></h2>
+  <p>En kalender som viser eventer. Her kan du se all eventer som er lastet opp av meg, eller din egen personlige kalender.</p>
   <h2><strong>Admin funksjoner</strong></h2>
+  <p>Admin kan gjøre mye. Admin har en egen side der admin kan se alle brukere som befinner seg hos Thangs GYM, legge til,
+    fjerne og oppdatere varer(treningsprogram). Se hvem som coacher hvem. Admin har et eget søkefelt der admin kan søke etter brukere,
+    for så å gjøre noe med denne brukeren, som f.eks gi brukeren tilgang til å endre coach flere ganger dersom brukeren har brukt opp
+    sine 3, kan også slette bruker, endre coach for en annen bruker. Admin kan slette meldinger i gjesteboken, slette alle eventer i kalenderen.</p>
 </div>

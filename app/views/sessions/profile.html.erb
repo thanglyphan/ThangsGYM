@@ -13,7 +13,7 @@
     <p> Admin?: <%= @current_user.admin? %> </p>
 
     <%= form_tag(:action => 'profile_pic_upload') do %>
-        <button type="submit" class="btn btn-sm">Upload pic from facebook</button><i>NB:Krever innlogget facebook bruker.</i>
+        <button type="submit" class="btn btn-sm">Hent profilbilde fra facebook</button><i>NB:Krever innlogget facebook bruker.</i>
   <% end %>
 
     <a <%=link_to "Vis dine bilder", dragonfly_images_path, class: "btn btn-success" %></a>
