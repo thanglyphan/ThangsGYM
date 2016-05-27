@@ -11,6 +11,14 @@ class SessionsController < ApplicationController
     @admin = User.find_by(:admin => 1)
   end
 
+  def about_me
+    render 'sessions/about/about_me'
+  end
+
+  def about_site
+    render 'sessions/about/about_site'
+  end
+
   def contact
     render 'contact'
   end
@@ -115,7 +123,7 @@ class SessionsController < ApplicationController
   end
 
   def send_me_mail
-    UserMailer.send_thang_email(@current_user, params[:InputName], params[:InputEmail], params[:InputMessage]).deliver_now
+    UserMailer.send_thang_email(@current_user, params[:InputName], params[:InputEmail], params[:subject], params[:InputMessage]).deliver_now
     flash[:notice] = "OK"
     redirect_to(:back)
   end

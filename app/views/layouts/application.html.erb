@@ -90,18 +90,49 @@
 
 <%= yield %>
 
+
 </body>
 
 <footer>
-  <div class="navbar navbar-inverse navbar-fixed-bottom">
-      <div class="navbar-collapse collapse" id="footer-body">
-        <ul class="nav navbar-nav">
-          <li><a <%=link_to "Admin", adminpage_path %></li>
-          <li><a <%=link_to "Kontakt meg", contact_path %></li>
-          <li><a <%=link_to "Legg igjen en tilbakemelding", review_path %></li>
-          <li><a <%=link_to "Kyoto kalenderen", calender_path %></li>
+
+  <div class="container text-center">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <hr>
+        <div class="col-md-3">
+          <ul class="nav nav-pills nav-stacked">
+            <li><a <%=link_to "Admin", adminpage_path %></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <ul class="nav nav-pills nav-stacked">
+            <li><a <%=link_to "Kontakt meg", contact_path %></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <ul class="nav nav-pills nav-stacked">
+            <li><a <%=link_to "Legg igjen en tilbakemelding", review_path %></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <ul class="nav nav-pills nav-stacked">
+            <li><a <%=link_to "Kyoto kalenderen", calender_path %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="nav nav-pills nav-justified">
+          <li><a href="/">© 2016 Thang Phan</a></li>
+          <li><a href="about_me">Om meg</a></li>
+          <li><a href="about_site">Om denne siden</a></li>
         </ul>
       </div>
+    </div>
+
   </div>
 </footer>
 </html>

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   root :to => 'sessions#login'
 
+  get 'about_me',             :to => 'sessions#about_me'
+  get 'about_site',           :to => 'sessions#about_site'
   post 'send_me_mail',        :to => 'sessions#send_me_mail'
   get 'login',                :to => 'sessions#login'
   post 'login_attempt',       :to => 'sessions#login_attempt'
