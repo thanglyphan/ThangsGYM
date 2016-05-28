@@ -83,8 +83,6 @@ module SessionsHelper
     redirect_to :action => 'login'
   end
 
-  #PICTURE UPLOAD
-
   def add_event_to_calendar
     userid = @current_user.id
     array = params[:datetext].split(' ')

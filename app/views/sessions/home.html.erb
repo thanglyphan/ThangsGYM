@@ -1,3 +1,7 @@
+<% if flash[:notice] == "OKBUY" %>
+    <div class="alert alert-success"><strong> Vellykket! Sjekk din epost for bekreftelse. Vedlagt finner du ditt kjøp! Ha en god trening :)</strong></div>
+<% end %>
+
 <% @my_photos.each do |t| %>
     <div class="col-sm-4 col-md-2">
       <div class="thumbnail">
