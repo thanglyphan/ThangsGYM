@@ -23,6 +23,8 @@ class UserMailer < ApplicationMailer
     @cart = cart
     @item = current_item
 
+
+    self.check_items_find_program
     mail to: @user.email, subject: "Here are your delivery!"
   end
 
@@ -42,9 +44,22 @@ class UserMailer < ApplicationMailer
       @inputsubject = 'Annet'
     end
 
-
-
-
     mail to: 'lyern52@gmail.com', cc: inputemail, subject: @inputsubject
+  end
+
+  def check_items_find_program
+    for item in @cart do
+      if item.cart_user == @user.id.to_s
+        if item.item == 'Strength'
+          attachments['strength.docx'] = File.read('products/strength.docx', mode: "rb")
+        elsif item.item == 'Condition'
+          attachments['condition.docx'] = File.read('products/condition.docx', mode: "rb")
+        elsif item.item == 'Weightloss'
+          attachments['weightloss.docx'] = File.read('products/weightloss.docx', mode: "rb")
+        else
+          attachments['somethingnew.docx'] = File.read('products/somethingnew.docx', mode: "rb")
+        end
+      end
+    end
   end
 end
