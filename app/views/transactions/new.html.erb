@@ -15,7 +15,7 @@
       <% if session[:couch?] %>
           <li class="list-group-item list-group-item-info"><strong>Coach </strong><%= @current_user.coach.name %> for 500 kr</li>
           <p></p>
-          <p><strong>Totalt: <%= total + 500 %> kr</strong></p>
+          <p><strong>Totalt: <%= total + 500 %> <% total = total + 500 %>kr</strong></p>
           <% else %>
           <p><strong>Totalt: <%= total %> kr</strong></p>
 
