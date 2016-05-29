@@ -1,25 +1,61 @@
-<% @page_title = "MyWebsite | Signup" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
 
+      <%= form_for :user, :url => { :action => 'create'} do |f| %>
+          <fieldset>
+            <div id="legend">
+              <legend class="">Registrer</legend>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="username">Brukernavn</label>
+              <div class="controls">
+                <%= f.text_field :username , class: "form-control input-lg"%>
+                <p class="help-block">Brukernavn kan inneholde alle bokstaver og tall, uten mellomrom</p>
+              </div>
+            </div>
 
-<div class="jumbotron">
-  <div class="container">
-    <h1>Sign Up</h1>
+            <div class="control-group">
+              <label class="control-label" for="email">E-mail</label>
+              <div class="controls">
+                <%= f.text_field :email, class: "form-control input-lg"%>
+                <p class="help-block">Oppgi din email</p>
+              </div>
+            </div>
 
+            <div class="control-group">
+              <label class="control-label" for="password">Passord</label>
+              <div class="controls">
+                <%= f.password_field :password, class: "form-control input-lg"%>
+                <p class="help-block">Passord skal være minst 6 tegn</p>
+              </div>
+            </div>
 
-    <%= form_for :user, :url => { :action => 'create'} do |f| %>
-        <p> Username:</br> <%= f.text_field :username%> </p>
-        <p> Email:</br> <%= f.text_field :email%> </p>
-        <p> Password:</br> <%= f.password_field :password%></p>
-        <p> Password Confirmation:</br> <%= f.password_field :password_confirmation%> </p>
-        <%= f.submit :Signup %>
-    <% end %>
-    <% if @user.errors.any? %>
-        <ul class="Signup_Errors">
-          <% for message_error in @user.errors.full_messages %>
-              <li>* <%= message_error %></li>
-          <% end %>
-        </ul>
-    <% end %>
-    <%=link_to "Back to login", root_url %>
+            <div class="control-group">
+              <label class="control-label" for="password_confirm">Gjenta passord</label>
+              <div class="controls">
+                <%= f.password_field :password_confirmation, class: "form-control input-lg"%>
+                <p class="help-block">Gjenta passord</p>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <!-- Button -->
+              <div class="controls">
+                <button type="submit" class="btn btn-success">Register</button>
+              </div>
+            </div>
+          </fieldset>
+      <% end %>
+      <% if @user.errors.any? %>
+          <ul class="Signup_Errors">
+            <% for message_error in @user.errors.full_messages %>
+                <li>* <%= message_error %></li>
+            <% end %>
+          </ul>
+      <% end %>
+      <p></p>
+      <%=link_to "Back to login", root_url %>
+    </div>
   </div>
 </div>
