@@ -171,7 +171,7 @@ class SessionsController < ApplicationController
       redirect_to login_path #(:action => 'login')
     else
       flash[:notice] = "You email is not valid, try again"
-      render "reset_password"
+      redirect_to(:back)
     end
   end
 

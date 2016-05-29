@@ -1,5 +1,5 @@
 <section class="intro" style="height: 550px; background-color: #8f9a65; text-align: center" >
-<img src="/icons/zyzz.png">
+  <img src="/icons/zyzz.png">
 </section>
 <div class="container">
   <div class="row">
@@ -50,13 +50,17 @@
                       </div>
                     </div>
                 <% end %>
+                <%= flash[:notice] %>
+
               </div>
               <div id="forgot-form" style="display: none;" >
                 <%= form_tag(:action => 'reset_pw') do %>
                     <div class="form-group">
                       <input type="text" name="email" id="email" tabindex="2" class="form-control" placeholder="Email">
                     </div>
-                    <input type="submit" tabindex="4" class="form-control btn btn-login" value="Reset">
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-default">Tilbakestill</button>
+                    </div>
                 <% end %>
                 <%= flash[:notice] %>
               </div>
@@ -68,7 +72,19 @@
   </div>
 </div>
 
-
+<% if @current_facebookuser.present? %>
+    <script type="text/javascript">
+      $(window).load(function(){
+        $('#connectModal').modal('show');
+      });
+    </script>
+<% else %>
+    <script type="text/javascript">
+      $(window).load(function(){
+        $('#connectModal').modal('hide');
+      });
+    </script>
+<% end %>
 <script type="text/javascript">
   $(function() {
     $('#login-form-link').click(function(e) {
