@@ -2,8 +2,6 @@
 
 <div class="jumbotron">
   <div class="container">
-    <p><strong>Ditt nyeste kjøp: <%= @current_user.program %> program</strong></p>
-
     <% if @current_user.coach.nil? %>
         <p> Ingen kjøp :( </p>
     <% else %>
