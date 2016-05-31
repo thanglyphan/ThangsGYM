@@ -15,4 +15,5 @@ Feature: Review
     When I click "Legg til en tilbakemelding"
     And Write a review
     Then I Want my name to be "Guest"
+    And My review to be visible for everyone
 
