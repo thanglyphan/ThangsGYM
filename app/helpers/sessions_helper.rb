@@ -31,13 +31,13 @@ module SessionsHelper
   #SUBSCRIPTIONS POST METHODS
   def add_subscription
     Subscription.add_email_to_subs(@current_user.email)
-    flash[:notice] = "You have successfully subscribed to .. with #{@current_user.email}. You will recieve the newest news!"
+    flash[:notice] = "OKSUB"
     redirect_to setting_path
   end
 
   def remove_subscription
     Subscription.remove_subs(@current_user.email)
-    flash[:notice] = "You have successfully unsubscribed to .. with #{@current_user.email}"
+    flash[:notice] = "OKUNSUB"
     redirect_to setting_path
   end
 
