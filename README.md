@@ -69,10 +69,12 @@ Jeg begynte litt fordi jeg følte jeg lå altfor langt bak. Dette er en side som
 Alt over er det jeg skrev før jeg begynte.
 
 Hvordan gjøre ting:
+
 1. Sett opp utviklingsmiljø(forutsetter at git er installert på datamaskinen)
   * Gå til en tom mappe
   * git clone https://github.com/Westerdals/PG4300-16-8-Thang
   * OPS! Dette prosjektet bruker MySQL, ikke default sqlite!
+ 
 2. Start prosjektet
   * Garanter at ruby er installert ruby -v
   * Garanter at rails er installert rails -v
@@ -82,10 +84,12 @@ Hvordan gjøre ting:
   * kjør: rake db:migrate
   * kjør: rails s
   * Gjør disse stegene etter hverandre
+ 
 3. Kjøre tester
   * Gå til mappen ved bruk av cmd
   * kjør: rake test test/models/user_test.rb (for testing av modeller)
   * kjør: rake cucumber (for testing av brukerhistorier)
+ 
 4. Beskrivelse av oppgave og andre ord
   Jeg har fulgt opp det jeg har skrevet over, det som var planen fra begynnelsen. Gi medlemmer av Thangs GYM en nettside der de kan administrere diverse ting. Det er MYE som er blitt lagt til, men ikke nevnt i begynnelsen, men alt av punkter jeg skrev i starten er blitt tatt med. Trolig nok, rakk jeg alt av de funksjonene jeg ville ha med, og jeg er mer enn fornøyd. Jeg syns at jeg har lært veldig mye, og har vært effektiv med den tiden jeg har hatt. 
 
