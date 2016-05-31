@@ -147,17 +147,24 @@ class SessionsController < ApplicationController
 
   def select_coach
     @current_user = User.find_by(:auth_token => cookies[:auth_token])
-    session[:checkcoach] = true
-    session[:couch?] = true
 
-        a = Coach.find_by(:name => params[:coach]) #Selected coach
-    b = Coach.find_by(:id => @current_user.coach_id) #Old coach
 
-    if a != b
-      change_coach_helper(a,b,@current_user) #Calling helper method.
+    a = Coach.find_by(:name => params[:coach])#Selected coach
+    if a.present?
+      session[:checkcoach] = true
+      session[:couch?] = true
+      b = Coach.find_by(:id => @current_user.coach_id) #Old coach
+      if a != b
+        change_coach_helper(a,b,@current_user) #Calling helper method.
+      end
+      flash[:notice] = "Du har valgt coach: #{a.name}."
+      redirect_to(:back)#redirect_to payment_path
+    else
+      flash[:notice] = "Du må velge en coach"
+      redirect_to(:back)#redirect_to payment_path
     end
-    flash[:notice] = "You have chosen the coach: #{a.name}."
-    redirect_to(:back)#redirect_to payment_path
+
+
 
   end
 

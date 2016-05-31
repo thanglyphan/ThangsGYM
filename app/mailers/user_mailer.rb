@@ -51,13 +51,13 @@ class UserMailer < ApplicationMailer
     for item in @cart do
       if item.cart_user == @user.id.to_s
         if item.item == 'Strength'
-          attachments['strength.docx'] = File.read('products/strength.docx', mode: "rb")
+          attachments['strength.docx'] = File.read('public/products/strength.docx', mode: "rb")
         elsif item.item == 'Condition'
-          attachments['condition.docx'] = File.read('products/condition.docx', mode: "rb")
+          attachments['condition.docx'] = File.read('public/products/condition.docx', mode: "rb")
         elsif item.item == 'Weightloss'
-          attachments['weightloss.docx'] = File.read('products/weightloss.docx', mode: "rb")
+          attachments['weightloss.docx'] = File.read('public/products/weightloss.docx', mode: "rb")
         else
-          attachments['somethingnew.docx'] = File.read('products/somethingnew.docx', mode: "rb")
+          attachments['somethingnew.docx'] = File.read('public/products/somethingnew.docx', mode: "rb")
         end
       end
     end
