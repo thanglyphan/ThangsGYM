@@ -75,7 +75,7 @@ Hvordan gjøre ting:
   * git clone https://github.com/Westerdals/PG4300-16-8-Thang
   * (NB! Jeg bruker dragonfly uploader, som da krever imagemagick. Må ha imagemagick innstallert på maskingen for at denne skal       fungere lokalt. 
     Kilder: http://puu.sh/p5zRv/216e1c14d1.png / http://stackoverflow.com/questions/6473853/ruby-on-rails-rmagick-on-windows-7 )
-  * OPS! Dette prosjektet bruker MySQL, ikke default sqlite!
+  * OPS! Dette prosjektet bruker MySQL, ikke default sqlite! Måtte derfor på heroku legge til en add-on "Clean DB" og innstallere den riktig for at dette skulle fungere. FULL CTRL!
  
 2. Start prosjektet
   * Garanter at ruby er installert ruby -v
