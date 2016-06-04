@@ -86,6 +86,7 @@ Hvordan gjøre ting:
   * kjør: rake db:create
   * kjør: rake db:migrate
   * NB: For å lage en adminbruker, registrer en bruker med email "lyern52@gmail.com", deretter kjør: rake db:seed
+        Denne seeden inneholder også items og gruppetreninger.
   * kjør: rails s
   * Gjør disse stegene etter hverandre
  
