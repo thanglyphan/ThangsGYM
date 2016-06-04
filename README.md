@@ -103,7 +103,8 @@ Hvordan gjøre ting:
 5. Brukte API'er
   - Facebook(for enklere "logg inn")
   - Instagram(for kun bilder)
-  - Sendgrid(for email sending)
+  - SMTP gmail(for email sending lokalt)
+  - Sendgrid(for email sending produksjon/heroku)
   - Braintree(paypal service for betaling)
   
   https://thangomango.herokuapp.com/ 
