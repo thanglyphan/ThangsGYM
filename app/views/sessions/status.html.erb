@@ -6,16 +6,25 @@
         <p> Ingen kjøp :( </p>
     <% else %>
         <p><strong>Din coach er: <%= @current_user.coach.name %></strong></p>
-        <p>Endre coach? Du kan endre coach: <%= @current_user.change_limit %> ganger!</p>
+        <% if @current_user.change_limit > 0%>
+            <p>Endre coach? Du kan endre coach: <%= @current_user.change_limit %> ganger!</p>
 
-        <%= form_tag(:action => 'select_coach') do %>
-            <%= select_tag(:coach, options_for_select(@coaches), {include_blank: 'COACHES'})%>
-            <%= submit_tag("Change now!") %>
-        <% end %>
+            <%= form_tag(:action => 'select_coach') do %>
+                <%= select_tag(:coach, options_for_select(@coaches), {include_blank: 'COACHES'})%>
+                <%= submit_tag("Change now!") %>
+            <% end %>
 
-        <% for st in Coach.all do%>
-            <p> <strong><%= st.name %></strong> coacher nå: <strong><%= st.clients %>/<%= st.limit%></strong></p>
+            <% for st in Coach.all do%>
+                <p> <strong><%= st.name %></strong> coacher nå: <strong><%= st.clients %>/<%= st.limit%></strong></p>
+            <% end %>
+            <% else %>
+              <p>Kontakt "lyern52@gmail.com", du har ikke mer kvote igjen av coach endring.</p>
+
+            <% for st in Coach.all do%>
+                <p> <strong><%= st.name %></strong> coacher nå: <strong><%= st.clients %>/<%= st.limit%></strong></p>
+            <% end %>
         <% end %>
-    <% end%>
+    <% end %>
+
   </div>
 </div>

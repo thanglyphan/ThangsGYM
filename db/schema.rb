@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20160526085507) do
 
   create_table "group_exercises", force: :cascade do |t|
     t.string   "weekday",         limit: 255
-    t.string   "time",            limit: 255
+    t.integer  "time",            limit: 4
     t.string   "name",            limit: 255
     t.string   "place",           limit: 255
     t.string   "intructor",       limit: 255
