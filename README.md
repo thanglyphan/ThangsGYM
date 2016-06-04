@@ -78,6 +78,7 @@ Hvordan gjøre ting:
   * OPS! Dette prosjektet bruker MySQL, ikke default sqlite! Måtte derfor på heroku legge til en add-on "Clean DB" og innstallere den riktig for at dette skulle fungere. FULL CTRL!
  
 2. Start prosjektet
+  * NB! I dette prosjektet, må mySQL være innstallert fordi jeg bruker mysql, ikke sqllite/postgres!!!
   * Garanter at ruby er installert ruby -v
   * Garanter at rails er installert rails -v
   * Gå til mappen du clonet prosjektet med cmd
