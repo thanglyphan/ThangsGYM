@@ -66,8 +66,6 @@ class SessionsController < ApplicationController
     if authorized_user_by_facebook && authorized_user_by_facebook.faceuid.present?
       cookies.permanent[:auth_token] = authorized_user_by_facebook.auth_token #NEW
       redirect_to home_path #(:action => 'home')
-    elsif authorized_user_by_facebook.faceuid.nil? && @current_facebookuser.present?
-      User.add_faceuid(authorized_user_by_facebook, @current_facebookuser)
     else
       flash[:notice] = "Invalid Username or Password"
       render "login"
