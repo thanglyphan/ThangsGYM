@@ -97,6 +97,12 @@ Hvordan gjøre ting:
 
   Jeg har fokusert mye på funksjonalitet på siden, og rettet alle bugs jeg overser. Tiden har blitt mer brukt til dette, og har ikke fokusert veldig mye på testing. Jeg har prøvd meg på cucumber og har fått generert features, men disse er kun av Gherkin syntax og innebærer ingen funksjonalitet for testing, kun tekst. Da jeg kom på at jeg manglet testing biten, var tiden for kort til å fullføre mtp. innlevering og eksamen i andre fag. Jeg prioriterte dette faget høyest i en periode, men ettersom leveringsfristen for denne oppgaven er rett rundt hjørne fra skrivende stund, har jeg valgt å legge dette til side å heller fokusere litt mer på de to siste fagene. Jeg har hvertfall fått brukerhistorer til alle mine funksjoner(hvertfall de fleste, dersom det ikke er, har jeg glemt det for jeg skulle skrive brukerhistore for ALLE mine funksjoner). Og litt på testing av model, men dette er minimum av det jeg kan få til. Jeg vet at dersom jeg hadde hatt et par dager ekstra ville disse testene for ALLE mine modeller vært ferdig. Alt i alt, jeg føler at denne prosessen for mitt arbeid er bra. Jeg har jobbet nøye og bra med hele løsningen og har kvalitetsjekket alle funksjoner flere ganger. Det eneste jeg ikke fikk tid til var å teste løsningen/modeller, ellers fikk jeg tid til alt jeg ønsket :)
   
+5. Brukte API'er
+  - Facebook(for enklere "logg inn")
+  - Instagram(for kun bilder)
+  - Sendgrid(for email sending)
+  - Braintree(paypal service for betaling)
+  
   https://thangomango.herokuapp.com/ 
   Admin brukernavn; thang, passord; 123123
   
