@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   attr_accessible :id, :username, :email, :password, :password_confirmation, :admin, :auth_token, :coach_id, :change_limit, :program_id, :profile_pic, :group_id, :faceuid, :cart_id #NEW
   EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i #For validation of email i use this regex.
   validates :username, :presence      => true,
-            :uniqueness               => true,
+            :uniqueness               => {:case_sensitive => false},
             :length                   => { :in => 3..20 }
   #----------------------------------------------------------------------------
   validates :email,         :presence => true,

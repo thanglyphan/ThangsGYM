@@ -66,3 +66,4 @@ W, [2016-06-04T12:35:43.591920 #7880]  WARN -- : DRAGONFLY: configuration option
 W, [2016-06-04T12:36:57.845015 #7888]  WARN -- : DRAGONFLY: configuration option protect_from_dos_attacks is deprecated - use verify_urls instead
 W, [2016-06-04T12:37:18.280978 #5472]  WARN -- : DRAGONFLY: configuration option protect_from_dos_attacks is deprecated - use verify_urls instead
 W, [2016-06-04T12:49:12.626114 #1264]  WARN -- : DRAGONFLY: configuration option protect_from_dos_attacks is deprecated - use verify_urls instead
+W, [2016-06-04T13:04:15.167157 #200]  WARN -- : DRAGONFLY: configuration option protect_from_dos_attacks is deprecated - use verify_urls instead
