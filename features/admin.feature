@@ -14,7 +14,7 @@ Feature: Admin
   Scenario: Search for an user
     Given I'am an admin
     When I Want to search for a user
-    Then I to see all users information about that user
+    Then I want to see all users information about that user
 
   Scenario: Delete events
     Given I'am an admin

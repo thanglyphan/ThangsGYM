@@ -5,17 +5,17 @@
     <% for bookings in @list_of_bookings do %>
         <% if @current_user.id == bookings.user_id %>
             <% if bookings == @list_of_bookings.last %>
-                <strong> <%= bookings.value %> LOL </strong>
+                <strong> <%= bookings.value %></strong>
                 <p></p>
             <% else %>
-                <strong> <%= bookings.value %> </strong>
+                <%= bookings.value %>
                 <p></p>
 
             <% end %>
         <% end %>
     <% end %>
     <p></p>
-    <p>Din nyeste booking: </p>
+    <p>Din nyeste aktive booking: </p>
     <% if !@current_user.group_exercise.nil?%>
 
         <%= form_tag(:action => 'remove_booking') do %>

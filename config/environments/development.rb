@@ -26,8 +26,8 @@ Rails.application.configure do
       :domain                     => "gmail.com",
       :authentication             => "plain",
       :enable_starttls_auto       => true,
-      :user_name                  => ENV['GMAIL_USERNAME_DEV'],
-      :password                   => ENV['GMAIL_PASSWORD_DEV']
+      :user_name                  => "spotifylyern@gmail.com",#ENV['GMAIL_USERNAME_DEV'],
+      :password                   => "mazda323123"#ENV['GMAIL_PASSWORD_DEV']
   }
 
   # Print deprecation notices to the Rails logger.
