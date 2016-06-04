@@ -86,7 +86,7 @@ Hvordan gjøre ting:
   * kjør: rake db:create
   * kjør: rake db:migrate
   * NB: For å lage en adminbruker, registrer en bruker med email "lyern52@gmail.com", deretter kjør: rake db:seed
-        Denne seeden inneholder også items og gruppetreninger.
+        Denne seeden inneholder også items og gruppetreninger. Pga. min gitignore fil, blir ikke email info som email-adr og passord tatt med. Dette er kritisk for programmet lokalt(heroku er ingen problem). Derfor, har jeg hardkodet inn tester-eposten min og passordet til den under ROOT-> config -> environments -> development.rb. Her skal egentlig parameterene for gmail info stå, men siden application.yml er satt til gitignore av meg(gjorde dette bare for å teste om det funket) så blir ikke disse tatt med, derfor må jeg skrive passord og email rett inn her for at email tjenesten skal fungere lokalt. Du kan skrive din email her hvis du vil det, da må du gå inn her https://www.google.com/settings/security/lesssecureapps og skru på tilgang til mindre sikkre apper.
   * kjør: rails s
   * Gjør disse stegene etter hverandre
  
