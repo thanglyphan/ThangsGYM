@@ -36,11 +36,18 @@ group :development, :test do
   gem 'byebug'
 end
 
+group :test do
+  gem 'cucumber-rails', :require => false
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+end
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 end
 
+gem 'dragonfly', '~> 1.0.12'
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
 gem 'json'

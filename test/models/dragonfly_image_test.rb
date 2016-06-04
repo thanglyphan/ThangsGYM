@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FaceuserTest < ActiveSupport::TestCase
+class DragonflyImageTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

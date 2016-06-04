@@ -11,6 +11,14 @@ class SessionsController < ApplicationController
     @admin = User.find_by(:admin => 1)
   end
 
+  def about_me
+    render 'sessions/about/about_me'
+  end
+
+  def about_site
+    render 'sessions/about/about_site'
+  end
+
   def contact
     render 'contact'
   end
@@ -114,6 +122,12 @@ class SessionsController < ApplicationController
     end
   end
 
+  def send_me_mail
+    UserMailer.send_thang_email(@current_user, params[:InputName], params[:InputEmail], params[:subject], params[:InputMessage]).deliver_now
+    flash[:notice] = "OK"
+    redirect_to(:back)
+  end
+
 
   def go_checkout
     if session[:checkcoach] == true && session[:couch?] == true
@@ -133,15 +147,24 @@ class SessionsController < ApplicationController
 
   def select_coach
     @current_user = User.find_by(:auth_token => cookies[:auth_token])
-    session[:checkcoach] = true
-    a = Coach.find_by(:name => params[:coach]) #Selected coach
-    b = Coach.find_by(:id => @current_user.coach_id) #Old coach
 
-    if a != b
-      change_coach_helper(a,b,@current_user) #Calling helper method.
+
+    a = Coach.find_by(:name => params[:coach])#Selected coach
+    if a.present?
+      session[:checkcoach] = true
+      session[:couch?] = true
+      b = Coach.find_by(:id => @current_user.coach_id) #Old coach
+      if a != b
+        change_coach_helper(a,b,@current_user) #Calling helper method.
+      end
+      flash[:notice] = "Du har valgt coach: #{a.name}."
+      redirect_to(:back)#redirect_to payment_path
+    else
+      flash[:notice] = "Du må velge en coach"
+      redirect_to(:back)#redirect_to payment_path
     end
-    flash[:notice] = "You have chosen the coach: #{a.name}. You will be charged 20$"
-    redirect_to(:back)#redirect_to payment_path
+
+
 
   end
 
@@ -155,7 +178,7 @@ class SessionsController < ApplicationController
       redirect_to login_path #(:action => 'login')
     else
       flash[:notice] = "You email is not valid, try again"
-      render "reset_password"
+      redirect_to(:back)
     end
   end
 

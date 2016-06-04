@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
+  resources :dragonfly_images
   get 'facebookusers/create'
 
   get 'facebookusers/destroy'
 
   root :to => 'sessions#login'
 
+  get 'about_me',             :to => 'sessions#about_me'
+  get 'about_site',           :to => 'sessions#about_site'
+  post 'send_me_mail',        :to => 'sessions#send_me_mail'
   get 'login',                :to => 'sessions#login'
   post 'login_attempt',       :to => 'sessions#login_attempt'
   post 'login_attempt_with_facebook', :to =>'sessions#login_attempt_with_facebook'
@@ -61,7 +65,6 @@ Rails.application.routes.draw do
   get 'signout', to: 'facebookusers#destroy', as: 'signout'
 
   resources :facebookusers, only: [:create, :destroy]
-
 
   resources :training
   resources :sessions

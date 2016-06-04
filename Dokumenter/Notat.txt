@@ -1,1 +1,4 @@
 https://gist.github.com/fnichol/867550 MUST
+
+Jeg bruker dragonfly uploader, som da krever imagemagick. Må ha imagemagick innstallert på maskingen for at denne skal fungere lokalt. 
+Kilder: http://puu.sh/p5zRv/216e1c14d1.png (http://stackoverflow.com/questions/6473853/ruby-on-rails-rmagick-on-windows-7)

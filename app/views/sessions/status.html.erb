@@ -2,8 +2,6 @@
 
 <div class="jumbotron">
   <div class="container">
-    <p><strong>Ditt nyeste kjøp: <%= @current_user.program %> program</strong></p>
-
     <% if @current_user.coach.nil? %>
         <p> Ingen kjøp :( </p>
     <% else %>
@@ -18,8 +16,6 @@
         <% for st in Coach.all do%>
             <p> <strong><%= st.name %></strong> coacher nå: <strong><%= st.clients %>/<%= st.limit%></strong></p>
         <% end %>
-
-
     <% end%>
   </div>
 </div>

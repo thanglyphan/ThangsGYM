@@ -5,7 +5,11 @@
 </head>
 <body>
 <h1> Hello!</h1>
-<p>Transaction was successfully! You purchased <%= @user.item.program %> program for <%= @user.gender %>s :)</p>
-
+<p>Transaction was successfully! You purchased: </p>
+<% for item in @cart do %>
+  <% if item.cart_user == @user.id.to_s %>
+    <p>- <%= item.item %> for <%= item.price %> kr.</p>
+  <% end %>
+<% end %>
 </body>
 </html>

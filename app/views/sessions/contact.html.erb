@@ -1,7 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <!--small><i></i>Add alerts if form ok... success, else error.</i></small-->
+      <% if flash[:notice] == "OK" %>
+        <div class="alert alert-success"><strong> Vellykket! Melding sendt.</strong></div>
+      <% end %>
+    </div>
 
-<div class="jumbotron">
-  <div class="container">
-    <p>Tlf: 94782533</p>
-    <p>Email: lyern52@gmail.com</p>
+    <%= form_tag(:action => 'send_me_mail') do %>
+      <div class="col-lg-6">
+        <div class="well well-sm"><strong>X - Required Field</strong></div>
+        <div class="form-group">
+          <label for="InputName">Ditt Navn</label>
+          <div class="input-group">
+            <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Oppgi navn" required>
+            <span class="input-group-addon"> X </span></div>
+        </div>
+        <div class="form-group">
+          <label for="InputEmail">Din Email</label>
+          <div class="input-group">
+            <input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Oppgi epost" required  >
+            <span class="input-group-addon"> X </span></div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Ditt tema</label>
+          <select id="subject" name="subject" class="form-control" required >
+            <option value="na" selected="">Velg en:</option>
+            <option value="Hjelp">Generell support</option>
+            <option value="Feedback">Tilbakemelding</option>
+            <option value="Produkter">Produkt support</option>
+            <option value="Klage">Klage</option>
+            <option value="Angre">Angrer kjøp/coach</option>
+            <option value="Annet">Annet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="InputMessage">Melding til Thang</label>
+          <div class="input-group">
+            <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" required></textarea>
+            <span class="input-group-addon"> X </span></div>
+        </div>
+        <input type="submit" name="submit" id="submit" value="Kontakt meg" class="btn btn-info pull-right">
+      </div>
+    <% end %>
+    <hr class="featurette-divider hidden-lg">
+    <div class="col-lg-5 col-md-push-1">
+      <address>
+        <h3>Thang sin info</h3>
+        <p class="lead"><a href="https://www.google.no/maps/place/Trimveien+8,+0372+Oslo/@59.9458258,10.7244984,18.75z/data=!4m5!3m4!1s0x46416de45b6d0b87:0x931ace12dca11624!8m2!3d59.945824!4d10.724608">Watchtower<br>
+          Trimveien 8, 0372 Oslo</a><br>
+          Telefon: 947 82 533<br>
+          Email: lyern52@gmail.com</p>
+      </address>
+    </div>
   </div>
 </div>

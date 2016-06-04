@@ -1,36 +1,109 @@
-<% @page_title = "MyWebsite | Login" -%>
-<div class="jumbotron">
-  <div class="container">
-    <h1>Logg inn</h1>
-    <p><%=flash[:notice]%></p>
-    <%= form_tag(:action => 'login_attempt') do %>
-        <p>Brukernavn eller E-mail:</br> <%= text_field_tag(:username_or_email) %></p>
-        <p>Passord:</br> <%= password_field_tag :login_password %></p>
+<section class="intro" style="height: 550px; background-color: #8f9a65; text-align: center" >
+  <img src="/icons/zyzz.png">
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-login">
+        <div class="panel-heading">
+          <div class="row">
+            <hr>
+            <div class="col-xs-6">
+              <a href="#" class="active" id="login-form-link">Login</a>
+            </div>
+            <div class="col-xs-6">
+              <a href="#" id="forgot-form-link">Glemt passord?</a>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-12">
+              <div id="login-form">
+                <%= form_tag(:action => 'login_attempt', id: 'login-form') do %>
 
-        <%= label_tag :remember_me %>
-        <%= check_box_tag :remember_me, 1, params[:remember_me] %>
-        <p></p>
-        <td><button type="submit" class="btn btn-default">Logg inn</button></td> eller <%= link_to image_tag("/icons/fb-login-button.png"), "/auth/facebook", id: "sign_in" %>
+                    <div class="form-group">
+                      <input type="text" name="username_or_email" id="username_or_email" tabindex="1" class="form-control" placeholder="Brukernavn" value="">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" name="login_password" id="login_password" tabindex="2" class="form-control" placeholder="Passord">
+                    </div>
+                    <div class="form-group text-center">
+                      <input type="checkbox" tabindex="3" class="" name="remember_me" id="remember_me">
+                      <label for="remember"> Remember Me</label>
+                    </div>
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-sm-7 col-sm-offset-3">
+                          <td><button type="submit" class="btn btn-default">Logg inn</button></td> eller <%= link_to image_tag("/icons/fb-login-button.png"), "/auth/facebook", id: "sign_in" %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="text-center">
+                            <%= link_to "Registrer meg", new_user_path %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                <% end %>
+                <%= flash[:notice] %>
 
-  <% end %>
-    <% if @current_facebookuser.present? %>
-        <script type="text/javascript">
-          $(window).load(function(){
-            $('#connectModal').modal('show');
-          });
-        </script>
-    <% else %>
-        <script type="text/javascript">
-          $(window).load(function(){
-            $('#connectModal').modal('hide');
-          });
-        </script>
-    <% end %>
-
-    <%= link_to "Registrer meg", new_user_path %> |
-    <%= link_to "Glemt passord?", reset_password_path%> |
+              </div>
+              <div id="forgot-form" style="display: none;" >
+                <%= form_tag(:action => 'reset_pw') do %>
+                    <div class="form-group">
+                      <input type="text" name="email" id="email" tabindex="2" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-default">Tilbakestill</button>
+                    </div>
+                <% end %>
+                <%= flash[:notice] %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<% if @current_facebookuser.present? %>
+    <script type="text/javascript">
+      $(window).load(function(){
+        $('#connectModal').modal('show');
+      });
+    </script>
+<% else %>
+    <script type="text/javascript">
+      $(window).load(function(){
+        $('#connectModal').modal('hide');
+      });
+    </script>
+<% end %>
+<script type="text/javascript">
+  $(function() {
+    $('#login-form-link').click(function(e) {
+      $("#login-form").delay(100).fadeIn(100);
+      $("#forgot-form").fadeOut(100);
+      $('#forgot-form-link').removeClass('active');
+      $(this).addClass('active');
+      e.preventDefault();
+    });
+    $('#forgot-form-link').click(function(e) {
+      $("#forgot-form").delay(100).fadeIn(100);
+      $("#login-form").fadeOut(100);
+      $('#login-form-link').removeClass('active');
+      $(this).addClass('active');
+      e.preventDefault();
+    });
+  });
+</script>
+
 
 <!-- Modal -->
 <div class="modal fade" id="connectModal" role="dialog">
@@ -66,14 +139,11 @@
               <%= form_tag(:action => 'login_attempt') do %>
                   <p>Brukernavn eller E-mail:</br> <%= text_field_tag(:username_or_email) %></p>
                   <p>Passord:</br> <%= password_field_tag :login_password %></p>
-
                   <p></p>
                   <td><button type="submit" class="btn btn-default">Koble til med facebook!</button></td>
               <% end %>
           <% end %>
-
         </div>
-
       </div>
       <div class="modal-footer">
         <h4>Ikke deg?<td><button type="submit" class="btn btn-default"> <%= link_to "Logg av facebook", signout_path, id: "sign_out" %> </button></td>
@@ -82,4 +152,3 @@
     </div>
   </div>
 </div>
-

@@ -1,0 +1,82 @@
+<div class="container">
+  <h1><strong>Forskjellige funksjoner</strong></h1>
+  <h2><strong>Login</strong></h2>
+  <p>For å logge inn, må man ha en registrert bruker hos "Thangs GYM". Man kan logge inn via bruker herfra, eller logge
+    inn via facebook. For at du skal logge inn raskest mulig, er det best å koble deg til via facebook, dette gjøres ved
+    å trykke på knappen "Connect via facebook". Man må også ha en bruker på Thangs GYM for å gjøre dette. Når "Connect via facebook"
+    blir trykt på, vil den autentisere deg med din innloggede facebook bruker, dermed får du et spørsmål om du vil koble facebook konto
+    til brukerkonto hos Thang GYM. Velger du å gjøre dette, vil programmet huske at din facebook konto og din bruker konto er koblet,
+    så du slipper å skrive brukernavn neste gang du logger deg inn via facebook. Du skriver kun da passord. Dette gjøres ved å hente en facebook id og
+    lagre den som en bruker id i "user-databasen". Uten noen som helst form for cookies, rett fra database.</p>
+  <h2><strong>Registrering av bruker</strong></h2>
+  <p>Du må oppgi en gyldig epostadresse, samt. gyldig passord. Etter at du har registrert deg, vil du få en velkomstmail fra meg.
+    Det går ikke ann å oppgi en epost/brukernavn som allerede er registrert. Dette hånderes ved å sjekke user-databsen.</p>
+  <h2><strong>Glemt passord</strong></h2>
+  <p>Dersom du har glemt ditt passord, vil du få muligheten ved å gjenopprette det ved å trykke på "Glemt passord"-knappen
+    ved innlogginssiden. Du oppgir da din epost, så vil det bli sendt en epost til den adressen du oppga med midlertidlig
+    passord som du kan bruke til å logge inn. Dette passordet er en random streng som programmet genererer. Ingen er like.</p>
+  <h2><strong>Fjern tilkobling og logg av facebook</strong></h2>
+  <p>Dersom denne facebook kontoen ikke er deg, kan du logge av den ved å trykke "logg av facebook". Hvis du vil fjerne
+    tilkoblingen mellom brukerkonto og facebook konto, kan du trykke på "Fjern tilkoblingen". Denne funksjonen vil da
+    slette din facebook id i user-databasen(table).</p>
+  <h2><strong>Footeren</strong></h2>
+  <p>Hele footeren kan hvem som helst se, om man er logget inn eller ikke(unntatt admin knappen)</p>
+  <h2><strong>Navbaren</strong></h2>
+  <p>Man må være innlogget for å kunne bruke de forskjellige knappene navbaren har,dette er fordi jeg kjører et filter
+    som sjekker om man er innlogget eller ikke før alt skjer.</p>
+  <h2><strong>Hjem</strong></h2>
+  <p>Under denne funksjonen gjemmer det seg kall til instagram. Etter man er logget inn, kommer man hit. Her ser brukeren 20
+    bilder, der disse bildene er hentet fra instagram kontoen til Thangs GYM. Det er max 20 bilder pga. instagram lar ikke
+    alle få full tilgang til API'et. Jeg får ikke hentet bilder fra noen andre sin konto enn de kontoene som er oppført som
+    "Sandbox"-kontoer, dvs. test kontoer.</p>
+  <h2><strong>Profil</strong></h2>
+  <p>Her kan man se når man har lagd brukeren, navnet ditt og profilbilde ditt. Som en default profilbilde, har jeg lagt
+    til en et tomt bilde, dersom man er logget inn som en bruker, og ikke en facebook bruker, kan man endre dette ved å
+    trykke "Hent profilbilde fra facebook", da får man bilde av Zyzz. Dersom du er logget inn med facebook, vil du kunne
+    klare å hente profilbildet ditt fra facebook. Du får også anledning til å klikke deg til dine bilder ved knappen under.</p>
+  <h2><strong>Innstillinger</strong></h2>
+  <p>Her kan du endre ditt passord. Du får tilsendt en bekreftelse på mail etter du har endret passordet ditt. Du kan subscribe
+    ved å trykke på subscribe-knappen. Da får du alle nyheter(produkter/treningsprogram) på mail og er en av de første! Dersom du
+    alerede har subscribet/abbonnert på Thang GYM, vil du istedenfor se en unsubscribe-knapp der du kan fjerne ditt abbonnement.</p>
+  <h2><strong>Treningsprogrammer</strong></h2>
+  <p>Dette er min nettbutikk. Akkurat nå, er det sandbox paypal. Du legger ting inn i handlekurven, velger om du vil ha en
+    coach eller ikke. Du checker ut fra handlekurven. Når du checker ut og har betalt med paypal, så får du en bekreftelse
+    på hva du har kjøpt, og varene dine vedlagt som vedlegg til din email.</p>
+  <h2><strong>Min handlekurv</strong></h2>
+  <p>Din handlekurv er KUN din. Varer som du har lagt til, vil ikke bli vist noen andre steder enn her, ingen andre
+    brukere har tilgang hit. Varene blir lagt til en database der kun du som bruker eier. Her velger du også hvilken coach
+    du har lyst på. Til høyre for coach navn, finner du antall brukere/medlemmer denne coachen coacher for øyeblikket.
+    Du har opptil 3 ganger du kan endre coach på, hvis dette overstiges, sier du ifra til meg.</p>
+  <h2><strong>Bilde dagbok</strong></h2>
+  <p>Dine personlige bilder ingen andre kan se. Her har jeg brukt dragonfly til opplastning av bilder/filer(i mitt
+    tilfelle er det bilder). Du kan slette, legge til, endre og se på. CRUD.</p>
+  <h2><strong>Gruppe trening</strong></h2>
+  <p>Jeg prøvde å lete etter et API fra SiO athletica, satselixia osv, men ingen hadde. Her har jeg da lagt til manuellt noen
+    gruppetimer i databasen, og hentet ut derfra. Brukeren kan velge å se hvilken dag osv. ved å klikke på de dagene som vises.
+    Klikkes det ikke på noen dag, vil dagen IDAG vises som default. Brukeren kan se på infoen, dersom brukeren liker
+    denne timen, kan bruker booke time her.</p>
+  <h2><strong>Øvelser</strong></h2>
+  <p>Her kan du sjekke dersom du er i tvil, hviklen øvelse som trener hvilken muskelgruppe. Alle muskler som det går ann å
+    trene er plassert øverst som knapper, dersom du vil sjekke øvelser for biceps, trykker du her og da vil det dukke opp en
+    hel liste med øvelser. Så velger du hvilken øvelse du vil ha. Dette er øvelser hentet fra bodybuilding.com og du ser nå på ting
+    fra et json format. Jeg legger til json fila inn i prosjektet, parser alle dataene riktig og viser det fram. </p>
+  <h2><strong>Mine bookings</strong></h2>
+  <p>Her kan du sjekke de gamle bookingene du har gjort, og den nyeste bookingen.</p>
+  <h2><strong>Status</strong></h2>
+  <p>Her kan du se hvem som er DIN coach, og her kan du endre(opp til tre ganger) coach. En statistikk over coacher
+    vises også dersom du har valgt coaching.</p>
+  <h2><strong>BMI kalkulator</strong></h2>
+  <p>En liten BMI kalkulator, ikke noe spennende her.</p>
+  <h2><strong>Kontakt meg</strong></h2>
+  <p>Dersom du vil sende meg en melding, går du hit. Her må du fylle inn navn, epost, tema og melding.
+    Du sender meg melding så enkelt som det, fyll inn, trykk send. Du vil få en kopi av eposten.</p>
+  <h2><strong>Legg igjen en tilbakemelding</strong></h2>
+  <p>En gjestebok der alle kan signere.</p>
+  <h2><strong>Kalender</strong></h2>
+  <p>En kalender som viser eventer. Her kan du se all eventer som er lastet opp av meg, eller din egen personlige kalender.</p>
+  <h2><strong>Admin funksjoner</strong></h2>
+  <p>Admin kan gjøre mye. Admin har en egen side der admin kan se alle brukere som befinner seg hos Thangs GYM, legge til,
+    fjerne og oppdatere varer(treningsprogram). Se hvem som coacher hvem. Admin har et eget søkefelt der admin kan søke etter brukere,
+    for så å gjøre noe med denne brukeren, som f.eks gi brukeren tilgang til å endre coach flere ganger dersom brukeren har brukt opp
+    sine 3, kan også slette bruker, endre coach for en annen bruker. Admin kan slette meldinger i gjesteboken, slette alle eventer i kalenderen.</p>
+</div>

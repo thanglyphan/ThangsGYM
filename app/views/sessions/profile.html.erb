@@ -1,18 +1,48 @@
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <% if @current_facebookuser.present? %>
+          <h3 class="panel-title"><%= @current_facebookuser.name%></h3>
+      <% else %>
+          <h3 class="panel-title"><%= @current_user.username%></h3>
+      <% end %>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="<%= @current_user.profile_pic %>?width=500" class="img-circle img-responsive"> </div>
 
+        <div class=" col-md-9 col-lg-9 ">
+          <table class="table table-user-information">
+            <tbody>
+            <tr>
+              <td>Brukernavn:</td>
+              <td><%= @current_user.username%></td>
+            </tr>
+            <tr>
+              <td>Ble medlem:</td>
+              <td><%= @current_user.created_at %></td>
+            </tr>
+            <tr>
+              <td>Admin?</td>
+              <td><%= @current_user.admin? %></td>
+            </tr>
 
-<div class="jumbotron">
-  <div class="container">
-    <% if @current_facebookuser.present? %>
-        <h1>Halla, <%= @current_facebookuser.name%>! </h1>
-    <% else %>
-        <h1>Halla, <%= @current_user.username%>! </h1>
-  <% end %>
-    <p> Din email: <%= @current_user.email%> </p>
-    <p> Du lagde denne brukeren: <%= @current_user.created_at%> </p>
-    <p> Admin?: <%= @current_user.admin? %> </p>
+            <tr>
+              <td>Email</td>
+              <td><%= @current_user.email %></td>
+            </tr>
+            </tbody>
+          </table>
 
-    <%= form_tag(:action => 'profile_pic_upload') do %>
-        <%= submit_tag("Upload pic from facebook!") %>
-    <% end %>
+          <%= form_tag(:action => 'profile_pic_upload') do %>
+              <button type="submit" class="btn btn-sm">Hent profilbilde fra facebook</button><i>NB:Krever innlogget facebook bruker.</i>
+          <% end %>
+
+          <a <%=link_to "Vis dine bilder", dragonfly_images_path, class: "btn btn-success" %></a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
+

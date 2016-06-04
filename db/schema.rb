@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160513074454) do
+ActiveRecord::Schema.define(version: 20160526085507) do
 
   create_table "all_my_bookings", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 20160513074454) do
     t.integer  "clients",    limit: 4,   default: 0
   end
 
+  create_table "dragonfly_images", force: :cascade do |t|
+    t.string   "asset_uid",  limit: 255
+    t.string   "asset_name", limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "user_id",    limit: 255
+  end
+
   create_table "facebookusers", force: :cascade do |t|
     t.string   "provider",         limit: 255
     t.string   "uid",              limit: 255
@@ -61,7 +69,7 @@ ActiveRecord::Schema.define(version: 20160513074454) do
 
   create_table "group_exercises", force: :cascade do |t|
     t.string   "weekday",         limit: 255
-    t.integer  "time",            limit: 4
+    t.string   "time",            limit: 255
     t.string   "name",            limit: 255
     t.string   "place",           limit: 255
     t.string   "intructor",       limit: 255
