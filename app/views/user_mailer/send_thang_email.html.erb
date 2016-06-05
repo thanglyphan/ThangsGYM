@@ -4,10 +4,17 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h1> From userid: <%= @user.id %></h1>
-<p> Name: <%= @inputname %></p>
-<p> Email: <%= @inputemail %></p>
-<p></p>
-<p> Message: <%= @inputmessage %></p>
+<% if @user.id.present? %>
+    <h1> From userid: <%= @user.id %></h1>
+    <p> Name: <%= @inputname %></p>
+    <p> Email: <%= @inputemail %></p>
+    <p></p>
+    <p> Message: <%= @inputmessage %></p>
+<% else %>
+    <p> Name: <%= @inputname %></p>
+    <p> Email: <%= @inputemail %></p>
+    <p></p>
+    <p> Message: <%= @inputmessage %></p>
+<% end %>
 </body>
 </html>
