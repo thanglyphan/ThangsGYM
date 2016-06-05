@@ -33,8 +33,7 @@ class UserMailer < ApplicationMailer
     mail to: email, subject: "Great news! New products for you!"
   end
 
-  def send_thang_email(current_user, inputname, inputemail, inputsubject ,inputmessage)
-    @user = current_user
+  def send_thang_email(inputname, inputemail, inputsubject ,inputmessage)
     @inputname = inputname
     @inputemail = inputemail
     @inputsubject = inputsubject

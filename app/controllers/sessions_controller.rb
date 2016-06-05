@@ -123,14 +123,9 @@ class SessionsController < ApplicationController
   end
 
   def send_me_mail
-    if @current_user.present?
-      UserMailer.send_thang_email(@current_user, params[:InputName], params[:InputEmail], params[:subject], params[:InputMessage]).deliver_now
-      flash[:notice] = "OK"
-      redirect_to(:back)
-    else
-      UserMailer.send_thang_email(nil, params[:InputName], params[:InputEmail], params[:subject], params[:InputMessage]).deliver_now
-    end
-
+    UserMailer.send_thang_email(params[:InputName], params[:InputEmail], params[:subject], params[:InputMessage]).deliver_now
+    flash[:notice] = "OK"
+    redirect_to(:back)
   end
 
 
