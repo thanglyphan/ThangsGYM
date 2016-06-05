@@ -93,7 +93,7 @@
             <% end %>
         <% else %>
             <% for event in @all_events do %>
-                <% #if event.user_id.nil? || event.user_id == @admin.id.to_s #Vil bare vise eventer som admin har gitt, ikke personlige.%>
+                <% if event.user_id.nil? || event.user_id == @admin.id.to_s #Vil bare vise eventer som admin har gitt, ikke personlige.%>
                 <tr>
                   <td class="agenda-date" class="active" rowspan="1">
                     <div class="shortdate text-muted"><%= event.date %></div>
@@ -114,17 +114,17 @@
                   <td class="agenda-delete">
                     <div class="agenda-delete">
                       <%= form_tag(:action => 'delete_event') do %>
-                          <% #if @current_user.present? && @current_user.admin? %>
+                          <% if @current_user.present? && @current_user.admin? %>
                           <button type="submit" value="<%= event.id%>" name="id" class="btn btn-default">Slett event</button>
                           <button type="button" class="open-editEventModal btn btn-default" data-toggle="modal" data-date="<%= event.date %>" data-event="<%= event.event %>" data-cost="<%= event.cost %>" data-comment="<%= event.comment %>" data-time="<%= event.time %>" data-eventid="<%= event.id %>" data-target="#editEventModal">Endre event </button>
-                          <% #end %>
+                          <% end %>
                           <button type="button" class="open-showCommentModal btn btn-default" data-toggle="modal" data-id="<%= event.comment %>" data-target="#showCommentModal">Se kommentar </button>
                       <% end %>
                     </div>
                   </td>
                 </tr>
             <% end %>
-            <% #end %>
+            <% end %>
         <% end %>
         </tbody>
       </table>
